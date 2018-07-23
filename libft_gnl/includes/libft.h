@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kmarchan <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/05/17 14:15:52 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/06/12 08:54:50 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/23 08:08:35 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 void	*ft_memset(void *b, int c, size_t n);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
