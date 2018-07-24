@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/24 10:23:54 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/24 12:10:48 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ typedef struct		s_list
 
 void	ft_intlstadd(t_list **alst, t_list *new);
 t_list		*ft_intlstnew(int data);
+int			acending(int a, int b);
 
 #endif
