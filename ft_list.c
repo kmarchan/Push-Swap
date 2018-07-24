@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   ft_list.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/24 10:50:19 by kmarchan         ###   ########.fr       */
+/*   Created: 2018/07/24 09:48:10 by kmarchan          #+#    #+#             */
+/*   Updated: 2018/07/24 10:31:22 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "checker.h"
 
-int	main(int argc, char **argv)
+t_list		*ft_intlstnew(int data)
 {
-	t_list	*lst;
-	int		arg;
-	t_list	*tmp;
+	t_list	*new;
 
-	arg = 0;
-	lst = (t_list *)malloc(sizeof(t_list));
-	tmp = lst;
-	if (argc > 1)
+	new = (t_list *)malloc(sizeof(t_list));
+	if (new == NULL)
 	{
-		while (arg < argc)
-		{
-			lst->next = ft_intlstnew(lst->data);
-			lst->data = (ft_atoi(argv[arg]));
-			lst = lst->next;
-			arg++;
-		}
-		lst = tmp;
+		return (NULL);
 	}
-	while (lst->next != NULL)
+	if (!data)
 	{
-		ft_putnbr(lst->data);
-		lst = lst->next;
+		new->data = 0;
+		new->norm = 0;
+	}
+	new->next = NULL;
+	return (new);
+}
+
+void		ft_intlstadd(t_list **alst, t_list *new)
+{
+	if (new != NULL)
+	{
+		new->next = *alst;
+		*alst = new;
 	}
 }
