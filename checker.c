@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/24 12:27:02 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/24 15:47:02 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	print_list(t_list *lst)
 void	normalise(t_list *lst)
 {
 	t_list *tmp;
+	
 
 	tmp = lst;
 	while (lst->next != NULL)
@@ -66,6 +67,7 @@ int	main(int argc, char **argv)
 			lst = lst->next;
 			arg++;
 		}
+		normalise(lst);
 	}
 }
 
