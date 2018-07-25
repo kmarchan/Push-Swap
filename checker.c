@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/25 13:00:11 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/25 13:12:40 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int		check_int(char *in)
 	return (1);
 }
 
-void	set_norm(int **ar, size_t n, t_list *lst)
+void	set_norm(int *ar, size_t n, t_list *lst)
 {
 	t_list *tmp;
 	size_t e;
@@ -64,8 +64,9 @@ void	set_norm(int **ar, size_t n, t_list *lst)
 		e = 0;
 		while (e < n)
 		{
-			if (ar[e] == &lst->data)
+			if (ar[e] == lst->data)
 			{
+				ft_putnbr(e);
 				lst->norm = e;
 			}
 			e++;
@@ -78,14 +79,14 @@ void	set_norm(int **ar, size_t n, t_list *lst)
 void	normalise(t_list *lst, size_t n)
 {
 	t_list	*tmp;
-	int		**ar;
+	int		*ar;
 
 	tmp = lst;
-	ar = (int**)malloc(sizeof(int *) * n + 1);
+	ar = (int*)malloc(sizeof(int) * n + 1);
 	n = 0;
 	while (lst->next != NULL)
 	{
-		ar[n] = &lst->data;
+		ar[n] = lst->data;
 		n++;
 		lst = lst->next;
 	}

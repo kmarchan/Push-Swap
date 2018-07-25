@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 10:05:26 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/25 10:12:09 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/25 13:12:10 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_swap(int *a, int *b)
 	*b = temp;
 }
 
-void	sort_int_tab(int **tab, size_t n)
+void	sort_int_tab(int *tab, size_t n)
 {
 	unsigned int i;
 	unsigned int j;
@@ -34,7 +34,7 @@ void	sort_int_tab(int **tab, size_t n)
 		{
 			if (tab[j + 1] < tab[j])
 			{
-				ft_swap(tab[j + 1], tab[j]);
+				ft_swap(&tab[j + 1], &tab[j]);
 			}
 			j++;
 		}
