@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/25 10:12:51 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/24 12:10:48 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct		s_list
 # define RRR ft_putendl_fd("rrr", 1);
 
 void	ft_intlstadd(t_list **alst, t_list *new);
-void	sort_int_tab(int **tab, size_t n);
 t_list		*ft_intlstnew(int data);
 int			acending(int a, int b);
 
