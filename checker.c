@@ -6,7 +6,11 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2018/07/26 18:04:30 by kmarchan         ###   ########.fr       */
+=======
+/*   Updated: 2018/07/24 15:47:02 by kmarchan         ###   ########.fr       */
+>>>>>>> 7d3f3bd89dc3ab14214a95763411319370230118
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +33,11 @@ void	print_list(t_list *lst)
 	while (lst->next != NULL)
 	{
 		ft_putnbr(lst->norm);
-		ft_putchar(' ');
 		lst = lst->next;
 	}
 }
 
+<<<<<<< HEAD
 int		check_int(char *in)
 {
 	int i;
@@ -98,14 +102,27 @@ void	normalise(t_list *lst, size_t n)
 		i++;
 	}
 	set_norm(ar, n, lst);
+=======
+void	normalise(t_list *lst)
+{
+	t_list *tmp;
+	
+
+	tmp = lst;
+	while (lst->next != NULL)
+	{
+		
+	}
+>>>>>>> 7d3f3bd89dc3ab14214a95763411319370230118
 	lst = tmp;
 }
 
-int		main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_list	*lst;
 	int		arg;
 	int		nor;
+	int		tm;
 	t_list	*tmp;
 
 	arg = 1;
@@ -116,15 +133,11 @@ int		main(int argc, char **argv)
 	{
 		while (arg < argc)
 		{
-			if (check_int(argv[arg]) == 0)
-				ERROR;
 			lst->next = ft_intlstnew(lst->data);
 			lst->data = (ft_atoi(argv[arg]));
 			lst = lst->next;
 			arg++;
 		}
-		normalise(lst, argc);
+		normalise(lst);
 	}
-	lst = tmp;
-	print_list(lst);
 }
