@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/25 13:12:40 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/26 18:04:30 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,12 @@ void	normalise(t_list *lst, size_t n)
 		lst = lst->next;
 	}
 	sort_int_tab(ar, n);
+	unsigned int i = 0;
+	while (i < n)
+	{
+		ft_putnbr(ar[i]);
+		i++;
+	}
 	set_norm(ar, n, lst);
 	lst = tmp;
 }

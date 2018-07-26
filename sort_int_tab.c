@@ -6,11 +6,12 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 10:05:26 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/25 13:12:10 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/26 18:09:13 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
 void	ft_swap(int *a, int *b)
 {
@@ -32,9 +33,13 @@ void	sort_int_tab(int *tab, size_t n)
 		j = 0;
 		while (j < n - 1)
 		{
-			if (tab[j + 1] < tab[j])
+		if (tab[j + 1] < tab[j])
 			{
-				ft_swap(&tab[j + 1], &tab[j]);
+				// ft_swap(&tab[j + 1], &tab[j]);
+				int temp;
+				temp = tab[j+1];
+				tab[j+1] = tab[j];
+				tab[j] = temp;
 			}
 			j++;
 		}
