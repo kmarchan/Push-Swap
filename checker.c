@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/27 07:45:27 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/27 08:24:06 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	print_list(t_list *lst)
 	while (lst->next != NULL)
 	{
 		ft_putnbr(lst->norm);
+		ft_putchar(' ');
 		lst = lst->next;
 	}
 }
@@ -65,7 +66,6 @@ void	set_norm(int *ar, size_t n, t_list *lst)
 		{
 			if (ar[e] == lst->data)
 			{
-				ft_putnbr(e);
 				lst->norm = e;
 			}
 			e++;
@@ -90,14 +90,8 @@ void	normalise(t_list *lst, size_t n)
 		lst = lst->next;
 	}
 	sort_int_tab(ar, n);
-	unsigned int i = 0;
-	while (i < n)
-	{
-		ft_putnbr(ar[i]);
-		i++;
-	}
-	set_norm(ar, n, lst);
 	lst = tmp;
+	set_norm(ar, n, lst);
 }
 
 int	main(int argc, char **argv)
@@ -120,7 +114,9 @@ int	main(int argc, char **argv)
 			lst = lst->next;
 			arg++;
 		}
+		lst = tmp;
 		normalise(lst, argc);
 	}
+	lst = tmp;
 	print_list(lst);
 }
