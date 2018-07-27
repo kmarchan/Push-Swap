@@ -6,11 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2018/07/26 18:04:30 by kmarchan         ###   ########.fr       */
-=======
-/*   Updated: 2018/07/24 15:47:02 by kmarchan         ###   ########.fr       */
->>>>>>> 7d3f3bd89dc3ab14214a95763411319370230118
+/*   Updated: 2018/07/27 07:45:27 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +33,6 @@ void	print_list(t_list *lst)
 	}
 }
 
-<<<<<<< HEAD
 int		check_int(char *in)
 {
 	int i;
@@ -82,7 +77,7 @@ void	set_norm(int *ar, size_t n, t_list *lst)
 
 void	normalise(t_list *lst, size_t n)
 {
-	t_list	*tmp;
+	t_list		*tmp;
 	int		*ar;
 
 	tmp = lst;
@@ -102,18 +97,6 @@ void	normalise(t_list *lst, size_t n)
 		i++;
 	}
 	set_norm(ar, n, lst);
-=======
-void	normalise(t_list *lst)
-{
-	t_list *tmp;
-	
-
-	tmp = lst;
-	while (lst->next != NULL)
-	{
-		
-	}
->>>>>>> 7d3f3bd89dc3ab14214a95763411319370230118
 	lst = tmp;
 }
 
@@ -122,7 +105,6 @@ int	main(int argc, char **argv)
 	t_list	*lst;
 	int		arg;
 	int		nor;
-	int		tm;
 	t_list	*tmp;
 
 	arg = 1;
@@ -138,6 +120,7 @@ int	main(int argc, char **argv)
 			lst = lst->next;
 			arg++;
 		}
-		normalise(lst);
+		normalise(lst, argc);
 	}
+	print_list(lst);
 }
