@@ -98,11 +98,9 @@ int	main(int argc, char **argv)
 {
 	t_list	*lst;
 	int		arg;
-	int		nor;
 	t_list	*tmp;
 
 	arg = 1;
-	nor = argc;
 	lst = (t_list *)malloc(sizeof(t_list));
 	tmp = lst;
 	if (argc > 1)
