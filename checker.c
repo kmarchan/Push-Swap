@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/27 08:24:06 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/28 11:02:30 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,26 +32,27 @@ void	print_list(t_list *lst)
 		ft_putchar(' ');
 		lst = lst->next;
 	}
+	return ;
 }
 
-int		check_int(char *in)
-{
-	int i;
+// int		check_int(char *in)
+// {
+// 	int i;
 
-	i = 0;
-	while (in[i] != '\0')
-	{
-		if (!ft_isdigit(in[i]))
-		{
-			if (in[i] != '-' || in[i] != '+')
-			{
-				return (0);
-			}
-		}
-		i++;
-	}
-	return (1);
-}
+// 	i = 0;
+// 	while (in[i] != '\0')
+// 	{
+// 		if (!ft_isdigit(in[i]))
+// 		{
+// 			if (in[i] != '-' || in[i] != '+')
+// 			{
+// 				return (0);
+// 			}
+// 		}
+// 		i++;
+// 	}
+// 	return (1);
+// }
 
 void	set_norm(int *ar, size_t n, t_list *lst)
 {
@@ -75,10 +76,10 @@ void	set_norm(int *ar, size_t n, t_list *lst)
 	lst = tmp;
 }
 
-void	normalise(t_list *lst, size_t n)
+int		normalise(t_list *lst, size_t n)
 {
 	t_list		*tmp;
-	int		*ar;
+	int			*ar;
 
 	tmp = lst;
 	ar = (int*)malloc(sizeof(int) * n + 1);
@@ -89,32 +90,77 @@ void	normalise(t_list *lst, size_t n)
 		n++;
 		lst = lst->next;
 	}
-	sort_int_tab(ar, n);
+	if (!sort_int_tab(ar, n))
+		return (0);
 	lst = tmp;
 	set_norm(ar, n, lst);
+	return (1);
 }
 
-int	main(int argc, char **argv)
+int		is_all_digit(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (!ft_isdigit(str[i]) && !ft_isspace(str[i]) && str[i] != '-')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int		sort_argument(t_list *lst, char *str)
+{
+	char	**ar;
+	int		e;
+
+	e = 0;
+	ar = ft_strsplit(str, ' ');
+	while (ar[e] != NULL)
+	{
+		lst->next = ft_intlstnew(lst->data);
+		lst->data = (ft_atoi(ar[e]));
+		lst = lst->next;
+		e++;
+	}
+	return (1);
+}
+
+int		main(int argc, char **argv)
 {
 	t_list	*lst;
 	int		arg;
-	t_list	*tmp;
+	int		c;
 
-	arg = 1;
-	lst = (t_list *)malloc(sizeof(t_list));
-	tmp = lst;
+	t_list	*tmp;
 	if (argc > 1)
 	{
-		while (arg < argc)
+		arg = 1;
+		lst = (t_list *)malloc(sizeof(t_list));
+		tmp = lst;
+		if (argc > 1)
 		{
-			lst->next = ft_intlstnew(lst->data);
-			lst->data = (ft_atoi(argv[arg]));
-			lst = lst->next;
-			arg++;
+			while (arg < argc)
+			{
+				if (!is_all_digit(argv[arg]))
+					ERROR;
+				if (ft_strstr(argv[arg], " "))
+					sort_argument(lst, argv[arg]);
+				else
+				{
+					lst->next = ft_intlstnew(lst->data);
+					lst->data = (ft_atoi(argv[arg]));
+				}
+				lst = lst->next;
+				arg++;
+			}
+			lst = tmp;
+			c = normalise(lst, argc);
+			if (c == 0)
+				ERROR;
 		}
-		lst = tmp;
-		normalise(lst, argc);
 	}
-	lst = tmp;
-	print_list(lst);
+	return (0);
 }

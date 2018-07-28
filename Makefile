@@ -19,7 +19,7 @@ LIB:
 
 INCLUDES= -I ./libft_gnl/includes
 
-SRC=	
+SRC= checker.c ft_list.c sort_int_tab.c 
 
 OBJ= $(SRC:.c=.o)
 
