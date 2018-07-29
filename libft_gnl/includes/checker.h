@@ -14,12 +14,12 @@
 # define CHECKER_H
 # include "libft.h"
 
-typedef struct		s_list
+typedef struct		s_stack
 {
 	int				data;
 	int				norm;
-	struct s_list	*next;
-}					t_list;
+	struct s_stack	*next;
+}					t_stack;
 
 # define ERROR ft_putendl_fd("Error", 2);
 # define SA ft_putendl_fd("sa", 1);
@@ -34,9 +34,18 @@ typedef struct		s_list
 # define RRB ft_putendl_fd("rrb", 1);
 # define RRR ft_putendl_fd("rrr", 1);
 
-void	ft_intlstadd(t_list **alst, t_list *new);
+int		sort_args(t_stack *lst, char *str);
+int		read_args(char *argv, t_stack *lst);
+int		args(int argc, char **argv);
+int		normalise(t_stack *lst, size_t n);
+void	set_norm(int *ar, size_t n, t_stack *lst);
+
+void	read_instruction(t_stack *la);
+
+void	ft_intlstadd(t_stack **alst, t_stack *new);
 int		sort_int_tab(int *tab, size_t n);
-t_list		*ft_intlstnew(int data);
-int			acending(int a, int b);
+int		is_all_digit(char *str);
+t_stack		*ft_intlstnew(int data);
+// int			acending(int a, int b);
 
 #endif

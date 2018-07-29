@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.c                                          :+:      :+:    :+:   */
+/*   ft_stack.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,11 +12,11 @@
 
 #include "checker.h"
 
-t_list		*ft_intlstnew(int data)
+t_stack		*ft_intlstnew(int data)
 {
-	t_list	*new;
+	t_stack	*new;
 
-	new = (t_list *)malloc(sizeof(t_list));
+	new = (t_stack *)malloc(sizeof(t_stack));
 	if (new == NULL)
 	{
 		return (NULL);
@@ -30,7 +30,7 @@ t_list		*ft_intlstnew(int data)
 	return (new);
 }
 
-void		ft_intlstadd(t_list **alst, t_list *new)
+void		ft_intlstadd(t_stack **alst, t_stack *new)
 {
 	if (new != NULL)
 	{
