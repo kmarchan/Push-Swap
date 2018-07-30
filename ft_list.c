@@ -30,6 +30,22 @@ t_stack		*ft_intlstnew(int data)
 	return (new);
 }
 
+int			ft_lstlen(t_stack *lst)
+{
+	int c;
+	t_stack *tmp;
+
+	c = 0;
+	tmp = lst;
+	while(lst->next != NULL)
+	{
+		c++;
+		lst = lst->next;
+	}
+	lst = tmp;
+	return (c);
+}
+
 void		ft_intlstadd(t_stack **alst, t_stack *new)
 {
 	if (new != NULL)

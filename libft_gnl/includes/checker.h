@@ -47,10 +47,13 @@ int				args(int argc, char **argv, t_che *che);
 // t_stack				*args(int argc, char **argv);
 int					normalise(t_che *che, size_t n);
 void				set_norm(int *ar, size_t n, t_che *che);
+void				ft_swap(int *a, int *b);
+
 
 int				read_instruction(t_che *stk);
 
 void				ft_intlstadd(t_stack **alst, t_stack *new);
+int					ft_lstlen(t_stack *lst);
 int					sort_int_tab(int *tab, size_t n);
 int					is_all_digit(char *str);
 t_stack				*ft_intlstnew(int data);

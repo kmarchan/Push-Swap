@@ -6,19 +6,21 @@
 #define CYN "\x1B[36m"
 #define RESET "\x1B[0m"
 
+void 	ft_swap(int *a, int *b)
+{
+	int	temp;
+	temp = *a;
+	*a = *b;
+	*b = temp;
+}
+
 void	swap_ab(t_stack *l1)
 {
-	int temp;
-	t_stack *tmp;
-	(void)temp;
-	tmp = l1;
-	// if (l1->next != NULL)
-	// {
-		temp = l1->data;
-		l1->data = l1->next->data;
-		l1->next->data = temp;
-	// }
-	l1 = tmp;
+	// if (l1->next == 0) 
+	if (ft_lstlen(l1) == 1)
+		return ;
+	ft_swap(&l1->data, &l1->next->data);
+	ft_swap(&l1->norm, &l1->next->norm);
 }
 
 // void	rotate_ab(t_stack *lst)
@@ -68,9 +70,10 @@ int		read_instruction(t_che *che)
 		// print_stack(che->la);
 		if (strcmp(buf, "sa")== 0)
 		{
-			ft_putendl_fd(CYN "A" RESET, 2);
+			// ft_putendl_fd(CYN "A" RESET, 2);
 			swap_ab(che->la);
-			ft_putendl_fd(CYN "B" RESET, 2);
+			print_stack(che->la);
+			// ft_putendl_fd(CYN "B" RESET, 2);
 		}
 		else if (strcmp(buf, "sb"))
 			swap_ab(che->lb);

@@ -12,15 +12,15 @@
 
 #include <stdlib.h>
 #include "libft.h"
+#include "checker.h"
+// void	ft_swap(int *a, int *b)
+// {
+// 	int temp;
 
-void	ft_swap(int *a, int *b)
-{
-	int temp;
-
-	temp = *a;
-	*a = *b;
-	*b = temp;
-}
+// 	temp = *a;
+// 	*a = *b;
+// 	*b = temp;
+// }
 
 int		sort_int_tab(int *tab, size_t n)
 {
