@@ -16,7 +16,6 @@ void 	ft_swap(int *a, int *b)
 
 void	swap_ab(t_stack *l1)
 {
-	// if (l1->next == 0) 
 	if (ft_lstlen(l1) == 1)
 		return ;
 	ft_swap(&l1->data, &l1->next->data);
@@ -63,28 +62,18 @@ int		read_instruction(t_che *che)
 	// ret = get_next_line(fd, &buf);
 
 	// lb = (t_stack*)malloc(sizeof(t_stack));
-	while (ret > 0)
+	while ((ret = get_next_line(fd, &buf) > 0))
 	{
 		// print_stack(che->la);
-		ret = get_next_line(fd, &buf);
-		// print_stack(che->la);
 		if (strcmp(buf, "sa")== 0)
-		{
-			// ft_putendl_fd(CYN "A" RESET, 2);
 			swap_ab(che->la);
-			print_stack(che->la);
-			// ft_putendl_fd(CYN "B" RESET, 2);
-		}
-		else if (strcmp(buf, "sb"))
+		if (strcmp(buf, "sb"))
 			swap_ab(che->lb);
-		else
-		 	return (0);
-// 		if (strcmp(buf, "ss"))
-// 		{
-// 			swap_ab(la);
-// 			swap_ab(lb);
-// 		}
-		// print_stack(che->la);
+		if (strcmp(buf, "ss"))
+		{
+			swap_ab(che->la);
+			swap_ab(che->lb);
+		}
 	}
 // // 		if (strcmp(buf, "pa"))
 // // 		if (strcmp(buf, "pb"))
@@ -94,6 +83,11 @@ int		read_instruction(t_che *che)
 // // 		if (strcmp(buf, "rra"))
 // // 		if (strcmp(buf, "rrb"))
 // // 		if (strcmp(buf, "rrr"))
+	// else
+		// {
+			// ERROR;
+			// return (0);
+		// }
 	return (1);
 }
 
