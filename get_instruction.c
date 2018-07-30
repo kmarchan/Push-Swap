@@ -3,6 +3,9 @@
 #include "checker.h"
 #include "get_next_line.h"
 
+#define CYN "\x1B[36m"
+#define RESET "\x1B[0m"
+
 void	swap_ab(t_stack *l1)
 {
 	int temp;
@@ -53,22 +56,25 @@ void		read_instruction(t_che *che)
 
 	fd = 0;
 	ret = 1;
+	(void)che;
 	// lb = (t_stack*)malloc(sizeof(t_stack));
-	// while (ret > 0)
-	// {
+	while (ret > 0)
+	{
 		ret = get_next_line(fd, &buf);
 		if (strcmp(buf, "sa"))
-			swap_ab(che->la);
-		else
-			return ;
-// 		if (strcmp(buf, "sb"))
-// 			swap_ab(lb);
+			ft_putendl_fd(CYN "SA" RESET, 2);
+		free(buf);
+		// 	swap_ab(che->la);
+		// if (strcmp(buf, "sb"))
+		// 	swap_ab(che->lb);
+		// else
+		// 	return ;
 // 		if (strcmp(buf, "ss"))
 // 		{
 // 			swap_ab(la);
 // 			swap_ab(lb);
 // 		}
-	// }
+	}
 // // 		if (strcmp(buf, "pa"))
 // // 		if (strcmp(buf, "pb"))
 // // 		if (strcmp(buf, "ra"))
