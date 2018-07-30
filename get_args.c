@@ -64,7 +64,7 @@ int		sort_args(t_stack *la, char *str)
 int		read_args(char *argv, t_stack *la)
 {
 	if (!is_all_digit(argv))
-		return (0);//ERROR;
+		return (0);
 	if (ft_strstr(argv, " "))
 		sort_args(la, argv);
 	else
@@ -73,32 +73,30 @@ int		read_args(char *argv, t_stack *la)
 		la->data = (ft_atoi(argv));
 	}
 	return (1);
-	// la = la->next;
-}	
+}
 
 int		args(int argc, char **argv)
 {
 	t_stack	*la;
 	int		arg;
 	int		c;
-
 	t_stack	*tmp;
-	if (argc > 1)
+
+	if (argc <= 1)
+		return (0);
+	arg = 1;
+	la = (t_stack *)malloc(sizeof(t_stack));
+	tmp = la;
+	while (arg < argc)
 	{
-		arg = 1;
-		la = (t_stack *)malloc(sizeof(t_stack));
-		tmp = la;
-		while (arg < argc)
-		{
-			if (!read_args(argv[arg], la))
-				return (0);
-			la = la->next;
-			arg++;
-		}
-		la = tmp;
-		c = normalise(la, argc);
-		if (c == 0)
+		if (!read_args(argv[arg], la))
 			return (0);
+		la = la->next;
+		arg++;
 	}
+	la = tmp;
+	c = normalise(la, argc);
+	if (c == 0)
+		return (0);
 	return (1);
 }

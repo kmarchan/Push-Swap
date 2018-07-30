@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/28 09:39:43 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/30 09:08:29 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@ typedef struct		s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+typedef struct		s_check
+{
+	t_stack			*la;
+	t_stack			*lb;
+	int				ll;
+}					t_che;
+
 # define ERROR ft_putendl_fd("Error", 2);
 # define SA ft_putendl_fd("sa", 1);
 # define SB ft_putendl_fd("sb", 1);
@@ -34,18 +41,19 @@ typedef struct		s_stack
 # define RRB ft_putendl_fd("rrb", 1);
 # define RRR ft_putendl_fd("rrr", 1);
 
-int		sort_args(t_stack *lst, char *str);
-int		read_args(char *argv, t_stack *lst);
-int		args(int argc, char **argv);
-int		normalise(t_stack *lst, size_t n);
-void	set_norm(int *ar, size_t n, t_stack *lst);
+int					sort_args(t_stack *lst, char *str);
+int					read_args(char *argv, t_stack *lst);
+int				args(int argc, char **argv);
+// t_stack				*args(int argc, char **argv);
+int					normalise(t_stack *lst, size_t n);
+void				set_norm(int *ar, size_t n, t_stack *lst);
 
-void	read_instruction(t_stack *la);
+void				read_instruction(t_che *stk);
 
-void	ft_intlstadd(t_stack **alst, t_stack *new);
-int		sort_int_tab(int *tab, size_t n);
-int		is_all_digit(char *str);
-t_stack		*ft_intlstnew(int data);
-// int			acending(int a, int b);
+void				ft_intlstadd(t_stack **alst, t_stack *new);
+int					sort_int_tab(int *tab, size_t n);
+int					is_all_digit(char *str);
+t_stack				*ft_intlstnew(int data);
+// int				acending(int a, int b);
 
 #endif
