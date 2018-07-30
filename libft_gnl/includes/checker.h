@@ -41,19 +41,21 @@ typedef struct		s_check
 # define RRB ft_putendl_fd("rrb", 1);
 # define RRR ft_putendl_fd("rrr", 1);
 
-int					sort_args(t_stack *lst, char *str);
-int					read_args(char *argv, t_stack *lst);
-int				args(int argc, char **argv);
+int					sort_args(t_che *che, char *str);
+int					read_args(char *argv, t_che *che);
+int				args(int argc, char **argv, t_che *che);
 // t_stack				*args(int argc, char **argv);
-int					normalise(t_stack *lst, size_t n);
-void				set_norm(int *ar, size_t n, t_stack *lst);
+int					normalise(t_che *che, size_t n);
+void				set_norm(int *ar, size_t n, t_che *che);
 
-void				read_instruction(t_che *stk);
+int				read_instruction(t_che *stk);
 
 void				ft_intlstadd(t_stack **alst, t_stack *new);
 int					sort_int_tab(int *tab, size_t n);
 int					is_all_digit(char *str);
 t_stack				*ft_intlstnew(int data);
+
+void				print_stack(t_stack *lst);
 // int				acending(int a, int b);
 
 #endif

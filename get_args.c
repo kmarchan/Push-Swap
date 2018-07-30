@@ -1,50 +1,50 @@
 #include "libft.h"
 #include "checker.h"
 
-void	set_norm(int *ar, size_t n, t_stack *la)
+void	set_norm(int *ar, size_t n, t_che *che)
 {
 	t_stack *tmp;
 	size_t e;
 
-	tmp = la;
-	while (la->next != NULL)
+	tmp = che->la;
+	while (che->la->next != NULL)
 	{
 		e = 0;
 		while (e < n)
 		{
-			if (ar[e] == la->data)
+			if (ar[e] == che->la->data)
 			{
-				la->norm = e;
+				che->la->norm = e;
 			}
 			e++;
 		}
-		la = la->next;
+		che->la = che->la->next;
 	}
-	la = tmp;
+	che->la = tmp;
 }
 
-int		normalise(t_stack *la, size_t n)
+int		normalise(t_che *che, size_t n)
 {
 	t_stack		*tmp;
 	int			*ar;
 
-	tmp = la;
+	tmp = che->la;
 	ar = (int*)malloc(sizeof(int) * n + 1);
 	n = 0;
-	while (la->next != NULL)
+	while (che->la->next != NULL)
 	{
-		ar[n] = la->data;
+		ar[n] = che->la->data;
 		n++;
-		la = la->next;
+		che->la = che->la->next;
 	}
 	if (!sort_int_tab(ar, n))
 		return (0);
-	la = tmp;
-	set_norm(ar, n, la);
+	che->la = tmp;
+	set_norm(ar, n, che);
 	return (1);
 }
 
-int		sort_args(t_stack *la, char *str)
+int		sort_args(t_che *che, char *str)
 {
 	char	**ar;
 	int		e;
@@ -53,31 +53,31 @@ int		sort_args(t_stack *la, char *str)
 	ar = ft_strsplit(str, ' ');
 	while (ar[e] != NULL)
 	{
-		la->next = ft_intlstnew(la->data);
-		la->data = (ft_atoi(ar[e]));
-		la = la->next;
+		che->la->next = ft_intlstnew(che->la->data);
+		che->la->data = (ft_atoi(ar[e]));
+		che->la = che->la->next;
 		e++;
 	}
 	return (1);
 }
 
-int		read_args(char *argv, t_stack *la)
+int		read_args(char *argv, t_che *che)
 {
 	if (!is_all_digit(argv))
 		return (0);
 	if (ft_strstr(argv, " "))
-		sort_args(la, argv);
+		sort_args(che, argv);
 	else
 	{
-		la->next = ft_intlstnew(la->data);
-		la->data = (ft_atoi(argv));
+		che->la->next = ft_intlstnew(che->la->data);
+		che->la->data = (ft_atoi(argv));
 	}
 	return (1);
 }
 
-int		args(int argc, char **argv)
+int		args(int argc, char **argv, t_che *che)
 {
-	t_stack	*la;
+	// t_stack	*la;
 	int		arg;
 	int		c;
 	t_stack	*tmp;
@@ -85,17 +85,17 @@ int		args(int argc, char **argv)
 	if (argc <= 1)
 		return (0);
 	arg = 1;
-	la = (t_stack *)malloc(sizeof(t_stack));
-	tmp = la;
+	che->la = (t_stack *)malloc(sizeof(t_stack));
+	tmp = che->la;
 	while (arg < argc)
 	{
-		if (!read_args(argv[arg], la))
+		if (!read_args(argv[arg], che))
 			return (0);
-		la = la->next;
+		che->la = che->la->next;
 		arg++;
 	}
-	la = tmp;
-	c = normalise(la, argc);
+	che->la = tmp;
+	c = normalise(che, argc);
 	if (c == 0)
 		return (0);
 	return (1);

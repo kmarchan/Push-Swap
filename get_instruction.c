@@ -12,12 +12,12 @@ void	swap_ab(t_stack *l1)
 	t_stack *tmp;
 	(void)temp;
 	tmp = l1;
-	if (l1->next != NULL)
-	{
+	// if (l1->next != NULL)
+	// {
 		temp = l1->data;
 		l1->data = l1->next->data;
 		l1->next->data = temp;
-	}
+	// }
 	l1 = tmp;
 }
 
@@ -47,7 +47,7 @@ void	swap_ab(t_stack *l1)
 // // 	la = la->next;
 // // }
 
-void		read_instruction(t_che *che)
+int		read_instruction(t_che *che)
 {
 	// t_stack	*lb;
 	int		fd;
@@ -56,24 +56,32 @@ void		read_instruction(t_che *che)
 
 	fd = 0;
 	ret = 1;
+	(void)fd;
 	(void)che;
+	// ret = get_next_line(fd, &buf);
+
 	// lb = (t_stack*)malloc(sizeof(t_stack));
 	while (ret > 0)
 	{
+		// print_stack(che->la);
 		ret = get_next_line(fd, &buf);
-		if (strcmp(buf, "sa"))
-			ft_putendl_fd(CYN "SA" RESET, 2);
-		free(buf);
-		// 	swap_ab(che->la);
-		// if (strcmp(buf, "sb"))
-		// 	swap_ab(che->lb);
-		// else
-		// 	return ;
+		// print_stack(che->la);
+		if (strcmp(buf, "sa")== 0)
+		{
+			ft_putendl_fd(CYN "A" RESET, 2);
+			swap_ab(che->la);
+			ft_putendl_fd(CYN "B" RESET, 2);
+		}
+		else if (strcmp(buf, "sb"))
+			swap_ab(che->lb);
+		else
+		 	return (0);
 // 		if (strcmp(buf, "ss"))
 // 		{
 // 			swap_ab(la);
 // 			swap_ab(lb);
 // 		}
+		// print_stack(che->la);
 	}
 // // 		if (strcmp(buf, "pa"))
 // // 		if (strcmp(buf, "pb"))
@@ -83,4 +91,8 @@ void		read_instruction(t_che *che)
 // // 		if (strcmp(buf, "rra"))
 // // 		if (strcmp(buf, "rrb"))
 // // 		if (strcmp(buf, "rrr"))
+	return (1);
 }
+
+// ft_putendl_fd(CYN "SA" RESET, 2);
+// 		free(buf);
