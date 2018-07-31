@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/31 09:26:11 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/31 09:36:35 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ typedef struct		s_check
 {
 	t_stack			*la;
 	t_stack			*lb;
+	int				fd;
 	int				ll;
 }					t_che;
 
@@ -46,14 +47,12 @@ typedef struct		s_check
 
 int					sort_args(t_che *che, char *str);
 int					read_args(char *argv, t_che *che);
-int				args(int argc, char **argv, t_che *che);
-// t_stack				*args(int argc, char **argv);
+int					args(int argc, char **argv, t_che *che);
 int					normalise(t_che *che, size_t n);
 void				set_norm(int *ar, size_t n, t_che *che);
 void				ft_swap(int *a, int *b);
 
-
-int				read_instruction(t_che *stk);
+int					read_instruction(t_che *stk);
 
 void				ft_intlstadd(t_stack **alst, t_stack *new);
 int					ft_lstlen(t_stack *lst);
