@@ -58,7 +58,7 @@ void				ft_intlstadd(t_stack **alst, t_stack *new);
 int					ft_lstlen(t_stack *lst);
 int					sort_int_tab(int *tab, size_t n);
 int					is_all_digit(char *str);
-t_stack				*ft_intlstnew(int data);
+t_stack				*ft_intlstnew();
 
 void				print_stack(t_stack *lst);
 // int				acending(int a, int b);

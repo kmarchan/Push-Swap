@@ -53,7 +53,8 @@ int		sort_args(t_che *che, char *str)
 	ar = ft_strsplit(str, ' ');
 	while (ar[e] != NULL)
 	{
-		che->la->next = ft_intlstnew(che->la->data);
+		// ft_putstr_fd(ar[e], 2);
+		che->la->next = ft_intlstnew();
 		che->la->data = (ft_atoi(ar[e]));
 		che->la = che->la->next;
 		e++;
@@ -69,7 +70,8 @@ int		read_args(char *argv, t_che *che)
 		sort_args(che, argv);
 	else
 	{
-		che->la->next = ft_intlstnew(che->la->data);
+		// ft_putendl_fd(argv, 2);
+		che->la->next = ft_intlstnew();
 		che->la->data = (ft_atoi(argv));
 	}
 	return (1);
@@ -85,6 +87,7 @@ int		args(int argc, char **argv, t_che *che)
 	if (argc <= 1)
 		return (0);
 	arg = 1;
+	(void)argv;
 	che->la = (t_stack *)malloc(sizeof(t_stack));
 	tmp = che->la;
 	while (arg < argc)

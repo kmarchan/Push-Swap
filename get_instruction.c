@@ -14,15 +14,15 @@ void	ft_swap(int *a, int *b)
 
 int		swap_ab(t_stack *l1)
 {
-	ft_putendl_fd(CYN "A" RESET, 2);
+	// ft_putendl_fd(CYN "A" RESET, 2);
 	if (l1 == NULL || l1->next == NULL)
 		return (0);
-	ft_putendl_fd(CYN "B" RESET, 2);
+	// ft_putendl_fd(CYN "B" RESET, 2);
 	if (ft_lstlen(l1) <= 1)
 		return (0);
-	ft_putendl_fd(CYN "C" RESET, 2);
+	// ft_putendl_fd(CYN "C" RESET, 2);
 	ft_swap(&l1->data, &l1->next->data);
-	ft_putendl_fd(CYN "D" RESET, 2);
+	// ft_putendl_fd(CYN "D" RESET, 2);
 	ft_swap(&l1->norm, &l1->next->norm);
 	return (1);
 }
@@ -51,6 +51,8 @@ void		push_ab(t_stack *l1, t_stack *l2)
 	t_stack *t1;
 	t_stack *t2;
 
+	(void)t1;
+	(void)t2;
 	t1 = l1;
 	t2 = l2;
 	l1 = l1->next;

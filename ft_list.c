@@ -12,7 +12,7 @@
 
 #include "checker.h"
 
-t_stack		*ft_intlstnew(int data)
+t_stack		*ft_intlstnew()
 {
 	t_stack	*new;
 
@@ -21,11 +21,8 @@ t_stack		*ft_intlstnew(int data)
 	{
 		return (NULL);
 	}
-	if (!data)
-	{
-		new->data = 0;
-		new->norm = 0;
-	}
+	new->data = -1;
+	new->norm = -1;
 	new->next = NULL;
 	return (new);
 }
@@ -37,7 +34,7 @@ int			ft_lstlen(t_stack *lst)
 
 	c = 0;
 	tmp = lst;
-	while (lst != NULL && lst->next != NULL)
+	while (lst != NULL)
 	{
 		c++;
 		lst = lst->next;
