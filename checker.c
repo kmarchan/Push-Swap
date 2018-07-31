@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/31 08:59:36 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/31 13:44:19 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int main(int argc, char **argv)
 		ERROR;
 		return (0);
 	}
-	read_instruction(che);//args(argc, argv));
+	if (!read_instruction(che))//args(argc, argv));
+		ERROR; 
 	return (0);
 }

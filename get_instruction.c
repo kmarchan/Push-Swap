@@ -27,39 +27,42 @@ int		swap_ab(t_stack *l1)
 	return (1);
 }
 
-void	rotate_ab(t_stack *lst)
+void	rotate_ab(t_stack **lst)
 {
 	t_stack *tmp;
 	t_stack *pop;
-
-	pop = lst;
-	tmp = lst;
-	pop->next = NULL;
-	while (lst->next != NULL)
+	// ft_putnbr_fd(ft_lstlen((*lst)), 2);
+	// ft_putchar_fd('_', 2);
+	if (ft_lstlen(*lst) <= 1)
+		return ;
+	pop = *lst;
+	*lst = (*lst)->next;
+	tmp = pop;
+	while (tmp->next != NULL)
 	{
-		lst = lst->next;
+		tmp = tmp->next;
 	}
-	lst->next = pop;
-	lst = tmp;
+	pop->next = NULL;
+	tmp->next = pop;
 }
 
-// // void		push_ab(t_stack *l1, t_stack *l2)
-// // {
-// // 	t_stack *t1;
-// // 	t_stack *t2;
-
-// // 	t1 = l1;
-// // 	t2 = l2;
-// // 	la = la->next;
-// // }
-
-int		more_instructions(char *buf, t_che *che)
+void		push_ab(t_stack *l1, t_stack *l2)
 {
-		// if (strcmp(buf, "pa"))
-		// if (strcmp(buf, "pb"))
+	t_stack *t1;
+	t_stack *t2;
 
-		if (strcmp(buf, "ra"))
-			rotate_ab(che->la);
+	t1 = l1;
+	t2 = l2;
+	l1 = l1->next;
+}
+
+int		ins_rot(char *buf, t_che *che)
+{
+		if (strcmp(buf, "ra") == 0)
+		{
+			ft_putendl_fd(CYN "A" RESET, 2);
+			rotate_ab(&che->la);
+		}
 		// if (strcmp(buf, "rb"))
 		// if (strcmp(buf, "rr"))
 
@@ -72,14 +75,24 @@ int		more_instructions(char *buf, t_che *che)
 int		ins_swap(char *buf, t_che *che)
 {
 	if (strcmp(buf, "sa") == 0)
-			swap_ab(che->la);
+		swap_ab(che->la);
 	else if (strcmp(buf, "sb") == 0)
-			swap_ab(che->lb);
+		swap_ab(che->lb);
 	else if (strcmp(buf, "ss") == 0)
 	{
 		swap_ab(che->la);
 		swap_ab(che->lb);
 	}
+	else
+		return (0);
+	return (1);
+}
+
+int		ins_push(char *buf, t_che *che)
+{
+	if (strcmp(buf, "pa") == 0)
+		push_ab(che->la, che->la);
+	// if (strcmp(buf, "pb"));
 	else 
 		return (0);
 	return (1);
@@ -91,20 +104,19 @@ int		read_instruction(t_che *che)
 	int		e;
 	char	*buf;
 
+	e = 0;
 	print_stack(che->la);
 	while ((ret = get_next_line(che->fd, &buf) > 0))
 	{
 		if (strchr(buf, 's'))
 			e = ins_swap(buf, che);
-		// else if (strchr(buf, 'p'))
-			// more_instructions(buf, che);
+		else if (strchr(buf, 'r'))
+			e = ins_rot(buf, che);
+		else if (strchr(buf, 'p'))
+			e = ins_push(buf, che);
+		if (e == 0)
+			return (0);
 		print_stack(che->la);
-		// else
-		// {
-		// 	// ERROR;
-		// 	ft_putendl_fd(CYN "SA" RESET, 2);
-		// 	return (0);
-		// }
 	}
 	return (1);
 }
