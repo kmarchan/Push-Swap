@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/30 09:48:55 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/31 08:59:36 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,19 @@ void	print_stack(t_stack *la)
 	tmp = la;
 	while (la->next != NULL)
 	{
-		ft_putnbr(la->data);
-		ft_putchar(' ');
+		ft_putnbr_fd(la->data, 2);
+		ft_putchar_fd(' ', 2);
 		la = la->next;
 	}
-	ft_putchar('\n');
+	ft_putchar_fd('\n', 2);
 	la = tmp;
 	while (la->next != NULL)
 	{
-		ft_putnbr(la->norm);
-		ft_putchar(' ');
+		ft_putnbr_fd(la->norm, 2);
+		ft_putchar_fd(' ', 2);
 		la = la->next;
 	}
+	ft_putchar_fd('\n', 2);
 	return ;
 }
 
@@ -56,11 +57,13 @@ int main(int argc, char **argv)
 	int		la;
 	// la = (t_stack*)malloc(sizeof(t_stack));
 	la = args(argc, argv, che);
-	print_stack(che->la);
 	// if (!args(argc, argv))
 	// 	ERROR;
 	if (!la)
+	{
 		ERROR;
+		return (0);
+	}
 	read_instruction(che);//args(argc, argv));
 	return (0);
 }

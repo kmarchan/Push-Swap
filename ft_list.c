@@ -32,16 +32,20 @@ t_stack		*ft_intlstnew(int data)
 
 int			ft_lstlen(t_stack *lst)
 {
-	int c;
-	t_stack *tmp;
+	int		c;
+	t_stack	*tmp;
 
+	ft_putendl_fd(CYN "1" RESET, 2);
 	c = 0;
 	tmp = lst;
-	while(lst->next != NULL)
+	ft_putendl_fd(CYN "2" RESET, 2);
+	while (lst != NULL && lst->next != NULL)
 	{
 		c++;
+		ft_putendl_fd(CYN "3" RESET, 2);
 		lst = lst->next;
 	}
+	ft_putendl_fd(CYN "4" RESET, 2);
 	lst = tmp;
 	return (c);
 }

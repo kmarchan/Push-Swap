@@ -3,12 +3,10 @@
 #include "checker.h"
 #include "get_next_line.h"
 
-#define CYN "\x1B[36m"
-#define RESET "\x1B[0m"
-
-void 	ft_swap(int *a, int *b)
+void	ft_swap(int *a, int *b)
 {
-	int	temp;
+	int		temp;
+
 	temp = *a;
 	*a = *b;
 	*b = temp;
@@ -16,9 +14,15 @@ void 	ft_swap(int *a, int *b)
 
 void	swap_ab(t_stack *l1)
 {
-	if (ft_lstlen(l1) == 1)
+	ft_putendl_fd(CYN "A" RESET, 2);
+	if (l1 == NULL || l1->next == NULL)
 		return ;
+	ft_putendl_fd(CYN "B" RESET, 2);
+	if (ft_lstlen(l1) <= 1)
+		return ;
+	ft_putendl_fd(CYN "C" RESET, 2);
 	ft_swap(&l1->data, &l1->next->data);
+	ft_putendl_fd(CYN "D" RESET, 2);
 	ft_swap(&l1->norm, &l1->next->norm);
 }
 
@@ -28,7 +32,7 @@ void	swap_ab(t_stack *l1)
 // 	t_stack *pop;
 
 // 	pop = lst;
-// 	tmp = lst;
+// 	tmp = lst
 // 	pop->next = NULL;
 // 	while (lst->next != NULL)
 // 	{
@@ -56,25 +60,19 @@ int		read_instruction(t_che *che)
 	char	*buf;
 
 	fd = 0;
-	ret = 1;
-	(void)fd;
-	(void)che;
-	// ret = get_next_line(fd, &buf);
-
-	// lb = (t_stack*)malloc(sizeof(t_stack));
+	print_stack(che->la);
 	while ((ret = get_next_line(fd, &buf) > 0))
 	{
-		// print_stack(che->la);
-		if (strcmp(buf, "sa")== 0)
+		if (strcmp(buf, "sa") == 0)
 			swap_ab(che->la);
-		if (strcmp(buf, "sb"))
+		else if (strcmp(buf, "sb") == 0)
 			swap_ab(che->lb);
-		if (strcmp(buf, "ss"))
+		else if (strcmp(buf, "ss") == 0)
 		{
 			swap_ab(che->la);
 			swap_ab(che->lb);
 		}
-	}
+		print_stack(che->la);
 // // 		if (strcmp(buf, "pa"))
 // // 		if (strcmp(buf, "pb"))
 // // 		if (strcmp(buf, "ra"))
@@ -83,11 +81,13 @@ int		read_instruction(t_che *che)
 // // 		if (strcmp(buf, "rra"))
 // // 		if (strcmp(buf, "rrb"))
 // // 		if (strcmp(buf, "rrr"))
-	// else
+		// else
 		// {
-			// ERROR;
-			// return (0);
+		// 	// ERROR;
+		// 	ft_putendl_fd(CYN "SA" RESET, 2);
+		// 	return (0);
 		// }
+	}
 	return (1);
 }
 

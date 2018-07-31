@@ -6,13 +6,16 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/30 09:08:29 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/07/31 09:26:11 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHECKER_H
 # define CHECKER_H
 # include "libft.h"
+
+#define CYN "\x1B[36m"
+#define RESET "\x1B[0m"
 
 typedef struct		s_stack
 {
