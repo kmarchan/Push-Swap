@@ -14,15 +14,11 @@ void	ft_swap(int *a, int *b)
 
 int		swap_ab(t_stack *l1)
 {
-	// ft_putendl_fd(CYN "A" RESET, 2);
 	if (l1 == NULL || l1->next == NULL)
 		return (0);
-	// ft_putendl_fd(CYN "B" RESET, 2);
 	if (ft_lstlen(l1) <= 1)
 		return (0);
-	// ft_putendl_fd(CYN "C" RESET, 2);
 	ft_swap(&l1->data, &l1->next->data);
-	// ft_putendl_fd(CYN "D" RESET, 2);
 	ft_swap(&l1->norm, &l1->next->norm);
 	return (1);
 }
@@ -31,8 +27,7 @@ void	rotate_ab(t_stack **lst)
 {
 	t_stack *tmp;
 	t_stack *pop;
-	// ft_putnbr_fd(ft_lstlen((*lst)), 2);
-	// ft_putchar_fd('_', 2);
+
 	if (ft_lstlen(*lst) <= 1)
 		return ;
 	pop = *lst;
@@ -44,6 +39,26 @@ void	rotate_ab(t_stack **lst)
 	}
 	pop->next = NULL;
 	tmp->next = pop;
+}
+
+void	revrot_ab(t_stack **lst)
+{
+	t_stack *tmp;
+	t_stack *pop;
+
+	if (ft_lstlen(*lst) <= 1)
+		return ;
+	pop = *lst;
+	tmp = *lst;
+	while (pop->next->next != NULL)
+	{
+		pop = pop->next;
+	}
+	tmp = pop;
+	pop = pop->next;
+	tmp->next = NULL;
+	pop->next = *lst;
+	*lst = pop;
 }
 
 void		push_ab(t_stack *l1, t_stack *l2)
@@ -61,16 +76,25 @@ void		push_ab(t_stack *l1, t_stack *l2)
 int		ins_rot(char *buf, t_che *che)
 {
 	if (strcmp(buf, "ra") == 0)
-	{
-		ft_putendl_fd(CYN "A" RESET, 2);
 		rotate_ab(&che->la);
+	else if (strcmp(buf, "rb") == 0)
+		rotate_ab(&che->lb);
+	else if (strcmp(buf, "rr") == 0)
+	{
+		rotate_ab(&che->la);
+		rotate_ab(&che->lb);
 	}
-	// if (strcmp(buf, "rb"))
-	// if (strcmp(buf, "rr"))
-
-	// if (strcmp(buf, "rra"))
-	// if (strcmp(buf, "rrb"))
-	// if (strcmp(buf, "rrr"))
+	else if (strcmp(buf, "rra") == 0)
+		revrot_ab(&che->la);
+	else if (strcmp(buf, "rrb") == 0)
+		revrot_ab(&che->lb);
+	else if (strcmp(buf, "rrr") == 0)
+	{
+		revrot_ab(&che->la);
+		revrot_ab(&che->lb);
+	}	// ft_putendl_fd(CYN "A" RESET, 2);
+	else
+		return (0);
 	return (1);
 }
 
