@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/31 13:44:19 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/01 17:33:16 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,21 +50,21 @@ int		is_all_digit(char *str)
 	return (1);
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	t_che	*che;
-	che = (t_che *)ft_memalloc(sizeof(t_che));
 	int		la;
-	// la = (t_stack*)malloc(sizeof(t_stack));
+	t_che	*che;
+
+	if (argc <= 1)
+		return (0);
+	che = (t_che *)ft_memalloc(sizeof(t_che));
 	la = args(argc, argv, che);
-	// if (!args(argc, argv))
-	// 	ERROR;
 	if (!la)
 	{
 		ERROR;
 		return (0);
 	}
-	if (!read_instruction(che))//args(argc, argv));
-		ERROR; 
+	if (!read_instruction(che))
+		ERROR;
 	return (0);
 }

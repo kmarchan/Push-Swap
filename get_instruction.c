@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_instruction.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/08/01 16:36:56 by kmarchan          #+#    #+#             */
+/*   Updated: 2018/08/01 16:54:34 by kmarchan         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 #include "checker.h"
@@ -61,16 +72,20 @@ void	revrot_ab(t_stack **lst)
 	*lst = pop;
 }
 
-void		push_ab(t_stack *l1, t_stack *l2)
+void		push_ab(t_stack **l1, t_stack **l2)
 {
 	t_stack *t1;
 	t_stack *t2;
 
-	(void)t1;
-	(void)t2;
-	t1 = l1;
-	t2 = l2;
-	l1 = l1->next;
+	if (ft_lstlen(*l1) < 1)
+		return ;
+	t1 = *l1;
+	t2 = t1;
+	t2 = t2->next;
+	t1->next = NULL;
+	t1->next = *l2;
+	*l2 = t1;
+	*l1 = t2;
 }
 
 int		ins_rot(char *buf, t_che *che)
@@ -92,7 +107,7 @@ int		ins_rot(char *buf, t_che *che)
 	{
 		revrot_ab(&che->la);
 		revrot_ab(&che->lb);
-	}	// ft_putendl_fd(CYN "A" RESET, 2);
+	}
 	else
 		return (0);
 	return (1);
@@ -116,10 +131,17 @@ int		ins_swap(char *buf, t_che *che)
 
 int		ins_push(char *buf, t_che *che)
 {
-	if (strcmp(buf, "pa") == 0)
-		push_ab(che->la, che->la);
-	// if (strcmp(buf, "pb"));
-	else 
+	// if (!che->lb)
+		// che->lb = (t_stack *)malloc(sizeof(t_stack));
+	if (strcmp(buf, "pb") == 0)
+	{
+		push_ab(&che->la, &che->lb);
+	}
+	else if (strcmp(buf, "pa") == 0)
+	{
+		push_ab(&che->lb, &che->la);
+	}
+	else
 		return (0);
 	return (1);
 }
@@ -140,9 +162,15 @@ int		read_instruction(t_che *che)
 			e = ins_rot(buf, che);
 		else if (strchr(buf, 'p'))
 			e = ins_push(buf, che);
+		else 
+			return (0);
 		if (e == 0)
 			return (0);
+	
+		ft_putendl_fd(CYN "Stack A" RESET, 2);
 		print_stack(che->la);
+		ft_putendl_fd(CYN "Stack B" RESET, 2);
+		print_stack(che->lb);
 	}
 	return (1);
 }
