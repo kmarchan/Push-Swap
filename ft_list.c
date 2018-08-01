@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack.c                                          :+:      :+:    :+:   */
+/*   ft_list.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/24 09:48:10 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/26 18:01:05 by kmarchan         ###   ########.fr       */
+/*   Created: 2018/08/01 07:39:19 by kmarchan          #+#    #+#             */
+/*   Updated: 2018/08/01 08:42:59 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ t_stack		*ft_intlstnew()
 	t_stack	*new;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
-	if (new == NULL)
+	if (!new)
 	{
 		return (NULL);
 	}
@@ -43,16 +43,21 @@ int			ft_lstlen(t_stack *lst)
 	return (c);
 }
 
-void		ft_intlstadd(t_stack **alst, t_stack *new)
-{
-	if (new != NULL)
-	{
-		new->next = *alst;
-		*alst = new;
-	}
-}
-
 int			acending(int a, int b)
 {
 	return (a <= b);
+}
+
+void		del_extra(t_stack *lst)
+{
+	t_stack *tmp;
+
+	tmp = lst;
+	while (tmp)
+	{
+		if (tmp->next->norm < 0)
+			tmp->next = NULL;
+		tmp = tmp->next;
+	}
+	free(tmp);
 }

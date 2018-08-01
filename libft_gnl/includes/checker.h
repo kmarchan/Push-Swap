@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/31 09:36:35 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/01 08:41:16 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,5 @@ t_stack				*ft_intlstnew();
 void				print_stack(t_stack *lst);
 // int				acending(int a, int b);
 
+void		del_extra(t_stack *lst);
 #endif

@@ -60,18 +60,18 @@ void		push_ab(t_stack *l1, t_stack *l2)
 
 int		ins_rot(char *buf, t_che *che)
 {
-		if (strcmp(buf, "ra") == 0)
-		{
-			ft_putendl_fd(CYN "A" RESET, 2);
-			rotate_ab(&che->la);
-		}
-		// if (strcmp(buf, "rb"))
-		// if (strcmp(buf, "rr"))
+	if (strcmp(buf, "ra") == 0)
+	{
+		ft_putendl_fd(CYN "A" RESET, 2);
+		rotate_ab(&che->la);
+	}
+	// if (strcmp(buf, "rb"))
+	// if (strcmp(buf, "rr"))
 
-		// if (strcmp(buf, "rra"))
-		// if (strcmp(buf, "rrb"))
-		// if (strcmp(buf, "rrr"))
-		return (1);
+	// if (strcmp(buf, "rra"))
+	// if (strcmp(buf, "rrb"))
+	// if (strcmp(buf, "rrr"))
+	return (1);
 }
 
 int		ins_swap(char *buf, t_che *che)
