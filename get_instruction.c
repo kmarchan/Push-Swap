@@ -77,7 +77,6 @@ int		read_instruction(t_che *che)
 	char	*buf;
 
 	e = 0;
-	print_stack(che->la);
 	while ((ret = get_next_line(che->fd, &buf) > 0))
 	{
 		if (strchr(buf, 's'))
@@ -90,10 +89,6 @@ int		read_instruction(t_che *che)
 			return (0);
 		if (e == 0)
 			return (0);
-		ft_putendl_fd(CYN "Stack A" RESET, 2);
-		print_stack(che->la);
-		ft_putendl_fd(CYN "Stack B" RESET, 2);
-		print_stack(che->lb);
 	}
 	return (1);
 }

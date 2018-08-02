@@ -109,8 +109,8 @@ int		args(int argc, char **argv, t_che *che)
 	}
 	che->la = tmp;
 	c = normalise(che, argc);
-	del_extra(che->la);
 	if (c == 0)
 		return (0);
+	del_extra(che->la);
 	return (1);
 }

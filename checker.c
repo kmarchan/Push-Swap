@@ -58,22 +58,20 @@ int		main(int argc, char **argv)
 	if (argc <= 1)
 		return (0);
 	che = (t_che *)ft_memalloc(sizeof(t_che));
-	ft_putstr_fd(CYN "A" RESET, 2);
 	la = args(argc, argv, che);
 	if (!la)
 	{
 		ERROR;
 		return (0);
 	}
-	ft_putstr_fd(CYN "B" RESET, 2);
 	if (!read_instruction(che))
 	{
 		ERROR;
 		return (0);
 	}
-	if (!sort_che(che->la, ascending))
+	if (!sort_che(che->la, ascending) || ft_lstlen(che->lb) > 0)
 	{
-		KO;
+		KO
 		return (0);
 	}
 	OK;

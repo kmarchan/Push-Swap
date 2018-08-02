@@ -20,9 +20,7 @@ int		ascending(int a, int b)
 t_stack	*sort_che(t_stack *lst, int (*cmp)(int, int))
 {
 	t_stack	*tmp;
-	int		temp;
 
-	temp = 0;
 	tmp = lst;
 	while (lst->next != 0)
 	{
