@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/02 08:26:58 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/02 13:43:01 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct		s_check
 }					t_che;
 
 # define ERROR ft_putendl_fd("Error", 2);
+# define KO ft_putendl_fd("KO", 2);
+# define OK ft_putendl_fd("OK", 2);
 # define SA ft_putendl_fd("sa", 1);
 # define SB ft_putendl_fd("sb", 1);
 # define SS ft_putendl_fd("ss", 1);
@@ -50,22 +52,23 @@ int					read_args(char *argv, t_che *che);
 int					args(int argc, char **argv, t_che *che);
 int					normalise(t_che *che, size_t n);
 void				set_norm(int *ar, size_t n, t_che *che);
-// void				ft_swap(int *a, int *b);
 
 int					read_instruction(t_che *stk);
-void				rotate_ab(t_stack **lst);
 int					swap_ab(t_stack *l1);
-void				revrot_ab(t_stack **lst);
 void				push_ab(t_stack **l1, t_stack **l2);
+void				rotate_ab(t_stack **lst);
+void				revrot_ab(t_stack **lst);
 
 void				ft_intlstadd(t_stack **alst, t_stack *new);
 int					ft_lstlen(t_stack *lst);
 int					sort_int_tab(int *tab, size_t n);
 int					is_all_digit(char *str);
-t_stack				*ft_intlstnew();
+t_stack				*ft_intlstnew(void);
 
+void				del_extra(t_stack *lst);
 void				print_stack(t_stack *lst);
-// int				acending(int a, int b);
 
-void		del_extra(t_stack *lst);
+t_stack				*sort_che(t_stack *lst, int (*cmp)(int, int));
+int					ascending(int a, int b);
+
 #endif
