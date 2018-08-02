@@ -6,13 +6,13 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 07:39:19 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/01 08:42:59 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/02 08:36:07 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-t_stack		*ft_intlstnew()
+t_stack		*ft_intlstnew(void)
 {
 	t_stack	*new;
 

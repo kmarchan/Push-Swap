@@ -6,21 +6,12 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/25 10:05:26 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/07/30 07:57:36 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/02 08:33:43 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-#include "checker.h"
-// void	ft_swap(int *a, int *b)
-// {
-// 	int temp;
-
-// 	temp = *a;
-// 	*a = *b;
-// 	*b = temp;
-// }
 
 int		sort_int_tab(int *tab, size_t n)
 {

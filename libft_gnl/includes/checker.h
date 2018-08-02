@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/01 08:41:16 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/02 08:26:58 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,13 @@ int					read_args(char *argv, t_che *che);
 int					args(int argc, char **argv, t_che *che);
 int					normalise(t_che *che, size_t n);
 void				set_norm(int *ar, size_t n, t_che *che);
-void				ft_swap(int *a, int *b);
+// void				ft_swap(int *a, int *b);
 
 int					read_instruction(t_che *stk);
+void				rotate_ab(t_stack **lst);
+int					swap_ab(t_stack *l1);
+void				revrot_ab(t_stack **lst);
+void				push_ab(t_stack **l1, t_stack **l2);
 
 void				ft_intlstadd(t_stack **alst, t_stack *new);
 int					ft_lstlen(t_stack *lst);
