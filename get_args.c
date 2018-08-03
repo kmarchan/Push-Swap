@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:29:54 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/03 11:51:01 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/03 12:44:55 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ int		sort_args(t_che *che, char *str)
 	ar = ft_strsplit(str, ' ');
 	while (ar[e] != NULL)
 	{
+		if (ft_atol(ar[e]) < -2147483648 || ft_atol(ar[e]) > 2147483647)
+			return (0);
 		che->la->next = ft_intlstnew();
 		che->la->data = (ft_atoi(ar[e]));
 		che->la = che->la->next;
@@ -78,9 +80,14 @@ int		read_args(char *argv, t_che *che)
 	if (!is_all_digit(argv))
 		return (0);
 	if (ft_strstr(argv, " "))
-		sort_args(che, argv);
+	{
+		if (!sort_args(che, argv))
+			return (0);
+	}
 	else
 	{
+		if (ft_atol(argv) < -2147483648 || ft_atol(argv) > 2147483647)
+			return (0);
 		che->la->next = ft_intlstnew();
 		che->la->data = (ft_atoi(argv));
 		che->la->norm = -2;

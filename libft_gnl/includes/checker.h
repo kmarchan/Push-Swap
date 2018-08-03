@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/03 06:42:16 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/03 11:58:33 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,5 +70,8 @@ void				print_stack(t_stack *lst);
 
 t_stack				*sort_che(t_stack *lst, int (*cmp)(int, int));
 int					ascending(int a, int b);
+
+int	ft_atol(const char *s);
+
 
 #endif
