@@ -79,27 +79,47 @@ void		ft_arrpop(int w, char **ret, char *str, char c)
 	ret[w][i] = '\0';
 }
 
-char		**ft_strspliter(char *str, char c)
-{
-	int		words;
-	int		i;
-	char	**ret;
+// static size_t	ft_countcword(char const *s, char c)
+// {
+// 	size_t		w;
+// 	size_t		i;
 
-	words = 3;
-	ret = (char**)malloc(sizeof(*ret) * words + 1);
-	i = 0;
-	while (i <= words)
-	{
-		while (*str == c && *str != '\0')
-			str++;
-		ft_arrpop(i, ret, str, c);
-		while (*str != c && *str != '\0')
-			str++;
-		i++;
-	}
-	ret[words] = NULL;
-	return (ret);
-}
+// 	w = 0;
+// 	i = 0;
+// 	if (!s)
+// 		return (0);
+// 	if (s[i] != c)
+// 		w++;
+// 	while (s[i] != '\0')
+// 	{
+// 		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+// 			w++;
+// 		i++;
+// 	}
+// 	return (w);
+// }
+
+// char		**ft_strspliter(char *str, char c)
+// {
+// 	int		words;
+// 	int		i;
+// 	char	**ret;
+
+// 	words = ft_countcword(str, c);
+// 	ret = (char**)malloc(sizeof(*ret) * words + 1);
+// 	i = 0;
+// 	while (i <= words)
+// 	{
+// 		while (*str == c && *str != '\0')
+// 			str++;
+// 		ft_arrpop(i, ret, str, c);
+// 		while (*str != c && *str != '\0')
+// 			str++;
+// 		i++;
+// 	}
+// 	ret[words] = NULL;
+// 	return (ret);
+// }
 
 int		sort_args(t_che *che, char *str)
 {
@@ -107,9 +127,10 @@ int		sort_args(t_che *che, char *str)
 	int		e;
 
 	e = 0;
-	ar = ft_strspliter(str, ' ');
+	ar = ft_split(str);
 	while (ar[e] != NULL)
 	{
+		ft_putstr_fd(ar[e], 2);
 		if (ft_atoi(ar[e]) < -217478368 || ft_atoi(ar[e]) > 217478367)
 		{
 			return (0);

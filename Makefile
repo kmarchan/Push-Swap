@@ -23,10 +23,10 @@ lib:
 
 
 SRC1=	checker.c ft_list.c get_args.c get_instruction.c instructions.c \
-lst_order.c print_stack.c ft_atol.c
+lst_order.c print_stack.c ft_atol.c ft_split.c
 
 SRC2=	push_swap.c ft_list.c get_args.c get_instruction.c instructions.c \
-lst_order.c print_stack.c ft_atol.c
+lst_order.c print_stack.c ft_atol.c ft_split.c
 
 OBJ1=	$(SRC1:.c=.o)
 
