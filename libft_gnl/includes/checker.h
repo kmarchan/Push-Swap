@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/02 13:43:01 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/03 06:42:16 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define CHECKER_H
 # include "libft.h"
 
-#define CYN "\x1B[36m"
-#define RESET "\x1B[0m"
+# define CYN "\x1B[36m"
+# define RESET "\x1B[0m"
 
 typedef struct		s_stack
 {

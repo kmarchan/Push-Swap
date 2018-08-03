@@ -6,12 +6,13 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/02 13:57:52 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/03 06:46:49 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "checker.h"
+#include <string.h>
 
 void	print_stack(t_stack *la)
 {
@@ -71,7 +72,7 @@ int		main(int argc, char **argv)
 	}
 	if (!sort_che(che->la, ascending) || ft_lstlen(che->lb) > 0)
 	{
-		KO
+		KO;
 		return (0);
 	}
 	OK;
