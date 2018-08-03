@@ -12,6 +12,7 @@
 
 #include "libft.h"
 #include "checker.h"
+#include <limits.h>
 
 void	set_norm(int *ar, size_t n, t_che *che)
 {
@@ -50,10 +51,54 @@ int		normalise(t_che *che, size_t n)
 		che->la = che->la->next;
 	}
 	if (!sort_int_tab(ar, n))
+	{
+		// ft_putstr_fd(CYN "double" RESET, 2);
 		return (0);
+	}
 	che->la = tmp;
 	set_norm(ar, n, che);
 	return (1);
+}
+
+void		ft_arrpop(int w, char **ret, char *str, char c)
+{
+	int		i;
+	int		len;
+
+	len = 0;
+	i = 0;
+	while (str[len] && str[len] != c)
+		len++;
+	ret[w] = (char*)ft_memalloc(len + 1);
+	while (i <= len)
+	{
+		ret[w][i] = *str;
+		i++;
+		str++;
+	}
+	ret[w][i] = '\0';
+}
+
+char		**ft_strspliter(char *str, char c)
+{
+	int		words;
+	int		i;
+	char	**ret;
+
+	words = 3;
+	ret = (char**)malloc(sizeof(*ret) * words + 1);
+	i = 0;
+	while (i <= words)
+	{
+		while (*str == c && *str != '\0')
+			str++;
+		ft_arrpop(i, ret, str, c);
+		while (*str != c && *str != '\0')
+			str++;
+		i++;
+	}
+	ret[words] = NULL;
+	return (ret);
 }
 
 int		sort_args(t_che *che, char *str)
@@ -62,11 +107,13 @@ int		sort_args(t_che *che, char *str)
 	int		e;
 
 	e = 0;
-	ar = ft_strsplit(str, ' ');
+	ar = ft_strspliter(str, ' ');
 	while (ar[e] != NULL)
 	{
-		if (ft_atol(ar[e]) < -2147483648 || ft_atol(ar[e]) > 2147483647)
+		if (ft_atoi(ar[e]) < -217478368 || ft_atoi(ar[e]) > 217478367)
+		{
 			return (0);
+		}
 		che->la->next = ft_intlstnew();
 		che->la->data = (ft_atoi(ar[e]));
 		che->la = che->la->next;
@@ -86,8 +133,11 @@ int		read_args(char *argv, t_che *che)
 	}
 	else
 	{
-		if (ft_atol(argv) < -2147483648 || ft_atol(argv) > 2147483647)
+		if (ft_atoi(argv) < -217478368 || ft_atoi(argv) > 217478367)
+		{
+			// ft_putstr_fd(CYN "Split list" RESET, 2);
 			return (0);
+		}
 		che->la->next = ft_intlstnew();
 		che->la->data = (ft_atoi(argv));
 		che->la->norm = -2;

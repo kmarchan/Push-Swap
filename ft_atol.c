@@ -12,10 +12,10 @@
 
 #include "libft.h"
 
-long	ft_atol(const char *s)
+long int	ft_atol(const char *s)
 {
 	unsigned int	i;
-	long			a;
+	long int			a;
 	int				neg;
 
 	i = 0;
@@ -37,3 +37,4 @@ long	ft_atol(const char *s)
 		a *= -1;
 	return (a);
 }
+

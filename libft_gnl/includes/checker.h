@@ -71,7 +71,7 @@ void				print_stack(t_stack *lst);
 t_stack				*sort_che(t_stack *lst, int (*cmp)(int, int));
 int					ascending(int a, int b);
 
-int	ft_atol(const char *s);
+// long int	ft_atol(const char *s);
 
 
 #endif

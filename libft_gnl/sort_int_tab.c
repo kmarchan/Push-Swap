@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "checker.h"
+#include <limits.h>
 #include "libft.h"
 
 int		sort_int_tab(int *tab, size_t n)
