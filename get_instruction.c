@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 16:36:56 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/02 08:35:12 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/03 11:40:41 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,25 @@ int		read_instruction(t_che *che)
 			return (0);
 		if (e == 0)
 			return (0);
+		ft_putendl_fd(CYN "Stack A" RESET, 2);
+		print_stack(che->la);
+		ft_putendl_fd(CYN "\nStack B" RESET, 2);
+		print_stack(che->lb);
+		ft_putchar_fd('\n', 2);
+	}
+	return (1);
+}
+
+int		is_all_digit(char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (!ft_isdigit(str[i]) && !ft_isspace(str[i]) && str[i] != '-')
+			return (0);
+		i++;
 	}
 	return (1);
 }

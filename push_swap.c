@@ -1,43 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/03 07:06:57 by kmarchan         ###   ########.fr       */
+/*   Created: 2018/08/03 06:53:00 by kmarchan          #+#    #+#             */
+/*   Updated: 2018/08/03 07:26:02 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "checker.h"
-#include <string.h>
+#include <strings.h>
 
-// void	print_stack(t_stack *la)
-// {
-// 	t_stack *tmp;
-
-// 	tmp = la;
-// 	while (la != NULL)
-// 	{
-// 		ft_putnbr_fd(la->data, 2);
-// 		ft_putchar_fd(' ', 2);
-// 		la = la->next;
-// 	}
-// 	ft_putchar_fd('\n', 2);
-// 	la = tmp;
-// 	while (la != NULL)
-// 	{
-// 		ft_putnbr_fd(la->norm, 2);
-// 		ft_putchar_fd(' ', 2);
-// 		la = la->next;
-// 	}
-// 	ft_putchar_fd('\n', 2);
-// 	return ;
-// }
-
-int		main(int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int		la;
 	t_che	*che;
@@ -56,11 +32,5 @@ int		main(int argc, char **argv)
 		ERROR;
 		return (0);
 	}
-	if (!sort_che(che->la, ascending) || ft_lstlen(che->lb) > 0)
-	{
-		KO;
-		return (0);
-	}
-	OK;
 	return (1);
 }
