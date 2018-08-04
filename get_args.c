@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:29:54 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/04 10:17:39 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/04 10:44:39 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,36 +59,15 @@ int		normalise(t_che *che, size_t n)
 	return (1);
 }
 
-// void		ft_arrpop(int w, char **ret, char *str, char c)
-// {
-// 	int		i;
-// 	int		len;
-
-// 	len = 0;
-// 	i = 0;
-// 	while (str[len] && str[len] != c)
-// 		len++;
-// 	ret[w] = (char*)ft_memalloc(len + 1);
-// 	while (i <= len)
-// 	{
-// 		ret[w][i] = *str;
-// 		i++;
-// 		str++;
-// 	}
-// 	ret[w][i] = '\0';
-// }
-
 int		sort_args(t_che *che, char *str)
 {
 	char	**ar;
 	int		e;
 
 	e = 0;
-	str = ft_strtrim(str);
-	ar = ft_split(str);
+	ar = ft_strspliter(str, ' ');
 	while (ar[e] != NULL)
 	{
-		// ft_putstr_fd(ar[e], 2);
 		if (ft_atoi(ar[e]) < -217478368 || ft_atoi(ar[e]) > 217478367)
 		{
 			return (0);
@@ -114,7 +93,6 @@ int		read_args(char *argv, t_che *che)
 	{
 		if (ft_atoi(argv) < -217478368 || ft_atoi(argv) > 217478367)
 		{
-			// ft_putstr_fd(CYN "Split list" RESET, 2);
 			return (0);
 		}
 		che->la->next = ft_intlstnew();
