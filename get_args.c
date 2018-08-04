@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:29:54 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/03 12:44:55 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/04 10:17:39 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ int		normalise(t_che *che, size_t n)
 	}
 	if (!sort_int_tab(ar, n))
 	{
-		// ft_putstr_fd(CYN "double" RESET, 2);
 		return (0);
 	}
 	che->la = tmp;
@@ -60,65 +59,23 @@ int		normalise(t_che *che, size_t n)
 	return (1);
 }
 
-void		ft_arrpop(int w, char **ret, char *str, char c)
-{
-	int		i;
-	int		len;
-
-	len = 0;
-	i = 0;
-	while (str[len] && str[len] != c)
-		len++;
-	ret[w] = (char*)ft_memalloc(len + 1);
-	while (i <= len)
-	{
-		ret[w][i] = *str;
-		i++;
-		str++;
-	}
-	ret[w][i] = '\0';
-}
-
-// static size_t	ft_countcword(char const *s, char c)
+// void		ft_arrpop(int w, char **ret, char *str, char c)
 // {
-// 	size_t		w;
-// 	size_t		i;
-
-// 	w = 0;
-// 	i = 0;
-// 	if (!s)
-// 		return (0);
-// 	if (s[i] != c)
-// 		w++;
-// 	while (s[i] != '\0')
-// 	{
-// 		if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
-// 			w++;
-// 		i++;
-// 	}
-// 	return (w);
-// }
-
-// char		**ft_strspliter(char *str, char c)
-// {
-// 	int		words;
 // 	int		i;
-// 	char	**ret;
+// 	int		len;
 
-// 	words = ft_countcword(str, c);
-// 	ret = (char**)malloc(sizeof(*ret) * words + 1);
+// 	len = 0;
 // 	i = 0;
-// 	while (i <= words)
+// 	while (str[len] && str[len] != c)
+// 		len++;
+// 	ret[w] = (char*)ft_memalloc(len + 1);
+// 	while (i <= len)
 // 	{
-// 		while (*str == c && *str != '\0')
-// 			str++;
-// 		ft_arrpop(i, ret, str, c);
-// 		while (*str != c && *str != '\0')
-// 			str++;
+// 		ret[w][i] = *str;
 // 		i++;
+// 		str++;
 // 	}
-// 	ret[words] = NULL;
-// 	return (ret);
+// 	ret[w][i] = '\0';
 // }
 
 int		sort_args(t_che *che, char *str)
@@ -127,10 +84,11 @@ int		sort_args(t_che *che, char *str)
 	int		e;
 
 	e = 0;
+	str = ft_strtrim(str);
 	ar = ft_split(str);
 	while (ar[e] != NULL)
 	{
-		ft_putstr_fd(ar[e], 2);
+		// ft_putstr_fd(ar[e], 2);
 		if (ft_atoi(ar[e]) < -217478368 || ft_atoi(ar[e]) > 217478367)
 		{
 			return (0);
