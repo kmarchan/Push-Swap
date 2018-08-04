@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 07:06:30 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/03 07:06:50 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/04 14:06:55 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,13 @@ void	print_stack(t_stack *la)
 	}
 	ft_putchar_fd('\n', 2);
 	return ;
+}
+
+void	print_ab(t_che *che)
+{
+	ft_putendl_fd(CYN "Stack A" RESET, 2);
+	print_stack(che->la);
+	ft_putendl_fd(CYN "\nStack B" RESET, 2);
+	print_stack(che->lb);
+	ft_putchar_fd('\n', 2);
 }

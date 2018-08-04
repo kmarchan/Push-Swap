@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/04 10:46:02 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/04 14:05:27 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ t_stack				*ft_intlstnew(void);
 
 void				del_extra(t_stack *lst);
 void				print_stack(t_stack *lst);
+void				print_ab(t_che *che);
+
 
 t_stack				*sort_che(t_stack *lst, int (*cmp)(int, int));
 int					ascending(int a, int b);
