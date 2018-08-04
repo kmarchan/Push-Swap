@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 11:55:29 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/03 12:29:17 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/04 10:49:12 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 long int	ft_atol(const char *s)
 {
 	unsigned int	i;
-	long int			a;
+	long int		a;
 	int				neg;
 
 	i = 0;
@@ -37,4 +37,3 @@ long int	ft_atol(const char *s)
 		a *= -1;
 	return (a);
 }
-
