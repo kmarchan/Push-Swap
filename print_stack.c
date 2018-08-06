@@ -41,7 +41,6 @@ void	print_ab(t_che *che)
 {
 	ft_putendl_fd(CYN "Stack A" RESET, 2);
 	print_stack(che->la);
-	ft_putendl_fd(CYN "\nStack B" RESET, 2);
+	ft_putendl_fd(CYN "Stack B" RESET, 2);
 	print_stack(che->lb);
-	ft_putchar_fd('\n', 2);
 }

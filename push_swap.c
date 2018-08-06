@@ -52,46 +52,101 @@ void	sort_a(t_che *che)
 	}
 }
 
-int	back2a(t_che *che, int llen)
+int	back2a(t_che *che)
 {
-	int slen;
+	int n;
 
-	slen = ft_lstlen(che->la);
-	while (ft_lstlen(che->la) - slen < llen / 5)
+	n = 3;
+	// slen = ft_lstlen(che->la);
+	while (ft_lstlen(che->lb) > 0)
 	{
-		if (che->lb->norm <= llen / 5)
+		if (che->lb->norm  <= n)
 		{
-			push_ab(&che->lb, &che->la);
 			PB;
+			push_ab(&che->lb, &che->la);
+			RA;
+			rotate_ab(&che->la);
+			n++;
 		}
 		else
 		{
+			// RA;
 			rotate_ab(&che->lb);
 			// RA;
-			ft_putendl_fd(CYN "ra" RESET, 2);
+			// ft_putendl_fd(CYN "ra" RESET, 2);
 		}
 	}
 	return (1);
 }
 
+void	sort_thre(t_che *che)
+{
+	t_stack *tmp;
+	tmp = che->la;
+	if (che->la->next->norm < che->la->norm)
+	{
+		SA;
+		swap_ab(che->la);
+		// print_ab(che);
+	}
+	che->la = tmp;
+	if (che->la->norm > che->la->next->next->norm)
+	{
+		RRA;
+		revrot_ab(&che->la);	
+		// la = tmp;
+		print_ab(che);
+	}	
+}
+
+void rra3(t_che *che)
+{
+	int i;
+	i = 0;
+	while (i++ < 3)
+	{
+		RRA;
+		revrot_ab(&che->la);
+	}
+}
 void	sort(t_che *che, int llen)
 {
-	while (!sort_che(che->la, ascending) || ft_lstlen(che->lb) > 0)
-	{
+	// while (!sort_che(che->la, ascending) || ft_lstlen(che->lb) > 0)
+	// {
 		while (ft_lstlen(che->la) >= 5)
 		{
 			get_chunk(che, llen);
 			llen -= (llen / 5);
 			print_ab(che);
 		}
-		// push_ab(&che->la, &che->lb);
+		PB;
+		while (che->la->norm != 3 )
+		{
+			// RA;
+			rotate_ab(&che->la);
+		}
+		push_ab(&che->la, &che->lb);
+		// print_ab(che);
+		sort_thre(che);
+		// print_ab(che);
 		// sort_a(che);
 		llen = ft_lstlen(che->lb);
-		while (ft_lstlen(che->lb) >= 5)
-		{
-			back2a(che, llen);
-		}
-	}
+		// int in;
+		// n = 3;
+		// while (ft_lstlen(che->lb) > 1)
+		// {
+			back2a(che);
+			// n++;
+			llen -= 1;
+			print_ab(che);
+		// }
+		// rra3(che);
+		print_ab(che);
+		//while (ft_lstlen(che->lb) >= 5)
+	//	{
+			//back2a(che, llen);
+	//	}
+	// }s
 }
 
 int		main(int argc, char **argv)

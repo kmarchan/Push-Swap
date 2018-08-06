@@ -61,6 +61,10 @@ void	revrot_ab(t_stack **lst)
 	tmp->next = NULL;
 	pop->next = *lst;
 	*lst = pop;
+	// ft_putnbr(ft_lstlen(pop));
+	// ft_putstr(CYN);
+	// print_stack(pop);
+	// ft_putstr(RESET);
 }
 
 void	push_ab(t_stack **l1, t_stack **l2)
