@@ -1,43 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   memory_man.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/06 08:17:14 by kmarchan         ###   ########.fr       */
+/*   Created: 2018/08/06 08:21:39 by kmarchan          #+#    #+#             */
+/*   Updated: 2018/08/06 08:26:14 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "checker.h"
-#include <string.h>
+#include <stdlib.h>
 
-int		main(int argc, char **argv)
+void	bzero_array(char **ar, int n)
 {
-	int		la;
-	t_che	*che;
+	int line;
 
-	if (argc <= 1)
-		return (0);
-	che = (t_che *)ft_memalloc(sizeof(t_che));
-	la = args(argc, argv, che);
-	if (!la)
+	line = 0;
+	while (line < n)
 	{
-		ERROR;
-		return (0);
+		ft_bzero(ar[line], n);
+		line++;
 	}
-	if (!read_instruction(che))
+}
+
+void	free_ar(char **ar, int n)
+{
+	int e;
+
+	e = 0;
+	while (e < n)
 	{
-		ERROR;
-		return (0);
+		free(ar[e]);
+		e++;
 	}
-	if (!sort_che(che->la, ascending) || ft_lstlen(che->lb) > 0)
-	{
-		KO;
-		return (0);
-	}
-	OK;
-	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/04 14:05:27 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/06 08:29:53 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@ t_stack				*sort_che(t_stack *lst, int (*cmp)(int, int));
 int					ascending(int a, int b);
 
 char				**ft_strspliter(char *str, char c);
+char 	**ft_split(char *str);
+void	free_ar(char **ar, int n);
 
 
 #endif

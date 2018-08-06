@@ -6,7 +6,7 @@
 #    By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/24 13:53:38 by kmarchan          #+#    #+#              #
-#    Updated: 2018/08/04 11:42:34 by kmarchan         ###   ########.fr        #
+#    Updated: 2018/08/06 08:27:04 by kmarchan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ lib:
 
 
 SRC1=	checker.c ft_list.c get_args.c get_instruction.c instructions.c \
-lst_order.c print_stack.c ft_split.c ft_strsplitter.c
+lst_order.c print_stack.c ft_split.c ft_strsplitter.c memory_man.c
 
 SRC2=	push_swap.c ft_list.c get_args.c get_instruction.c instructions.c \
-lst_order.c print_stack.c ft_split.c ft_strsplitter.c
+lst_order.c print_stack.c ft_split.c ft_strsplitter.c memory_man.c
 
 OBJ1=	$(SRC1:.c=.o)
 
