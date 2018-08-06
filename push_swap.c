@@ -48,7 +48,7 @@ void	sort_a(t_che *che)
 			rotate_ab(&che->la);
 			RA;
 		}
-		print_ab(che);
+		// print_ab(che);
 	}
 }
 
@@ -70,7 +70,7 @@ int	back2a(t_che *che)
 		}
 		else
 		{
-			// RA;
+			RA;
 			rotate_ab(&che->lb);
 			// RA;
 			// ft_putendl_fd(CYN "ra" RESET, 2);
@@ -95,7 +95,7 @@ void	sort_thre(t_che *che)
 		RRA;
 		revrot_ab(&che->la);	
 		// la = tmp;
-		print_ab(che);
+		// print_ab(che);
 	}	
 }
 
@@ -117,12 +117,12 @@ void	sort(t_che *che, int llen)
 		{
 			get_chunk(che, llen);
 			llen -= (llen / 5);
-			print_ab(che);
+			// print_ab(che);
 		}
 		PB;
 		while (che->la->norm != 3 )
 		{
-			// RA;
+			RA;
 			rotate_ab(&che->la);
 		}
 		push_ab(&che->la, &che->lb);
@@ -138,10 +138,10 @@ void	sort(t_che *che, int llen)
 			back2a(che);
 			// n++;
 			llen -= 1;
-			print_ab(che);
+			// print_ab(che);
 		// }
 		// rra3(che);
-		print_ab(che);
+		// pirint_ab(che);
 		//while (ft_lstlen(che->lb) >= 5)
 	//	{
 			//back2a(che, llen);

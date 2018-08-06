@@ -66,8 +66,8 @@ int					is_all_digit(char *str);
 t_stack				*ft_intlstnew(void);
 
 void				del_extra(t_stack *lst);
-void				print_stack(t_stack *lst);
-void				print_ab(t_che *che);
+// void				print_stack(t_stack *lst);
+// void				print_ab(t_che *che);
 
 
 t_stack				*sort_che(t_stack *lst, int (*cmp)(int, int));
