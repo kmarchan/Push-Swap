@@ -26,6 +26,19 @@ int		swap_ab(t_stack *l1)
 	return (1);
 }
 
+// int		swap_a(t_stack **l1)
+// {
+// 	// ft_putendl_fd(CYN "S" RESET, 2);
+// 	if (*l1 == NULL || (*l1)->next == NULL)
+// 		return (0);
+// 	if (ft_lstlen(*l1) <= 1)
+// 		return (0);
+// 	ft_swap(&(*l1)->data, &(*l1)->next->data);
+// 	ft_swap(&(*l1)->norm, &(*l1)->next->norm);
+// 	return (1);
+// }
+
+
 void	rotate_ab(t_stack **lst)
 {
 	// ft_putendl_fd(CYN "RO" RESET, 2);

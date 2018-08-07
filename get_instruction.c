@@ -89,7 +89,7 @@ int		read_instruction(t_che *che)
 			return (0);
 		if (e == 0)
 			return (0);
-		// print_ab(che);
+		print_ab(che);
 	}
 	return (1);
 }

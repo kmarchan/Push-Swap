@@ -19,13 +19,13 @@ void	print_stack(t_stack *la)
 	t_stack *tmp;
 
 	tmp = la;
-	while (la != NULL)
-	{
-		ft_putnbr_fd(la->data, 2);
-		ft_putchar_fd(' ', 2);
-		la = la->next;
-	}
-	ft_putchar_fd('\n', 2);
+	// while (la != NULL)
+	// {
+		// ft_putnbr_fd(la->data, 2);
+		// ft_putchar_fd(' ', 2);
+		// la = la->next;
+	// }
+	// ft_putchar_fd('\n', 2);
 	la = tmp;
 	while (la != NULL)
 	{
