@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/06 08:29:53 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/07 12:02:44 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,8 +66,8 @@ int					is_all_digit(char *str);
 t_stack				*ft_intlstnew(void);
 
 void				del_extra(t_stack *lst);
-// void				print_stack(t_stack *lst);
-// void				print_ab(t_che *che);
+void				print_stack(t_stack *lst);
+void				print_ab(t_che *che);
 
 
 t_stack				*sort_che(t_stack *lst, int (*cmp)(int, int));

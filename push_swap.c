@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 06:53:00 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/04 14:07:01 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/07 14:44:06 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,59 +22,83 @@ int		get_chunk(t_che *che, int llen)
 	{
 		if (che->la->norm >= (llen - (llen / 5)))
 		{
-			push_ab(&che->la, &che->lb);
 			PB;
+			push_ab(&che->la, &che->lb);
 		}
 		else
 		{
-			rotate_ab(&che->la);
 			RA;
+			rotate_ab(&che->la);
 		}
 	}
 	return (1);
 }
 
-void	sort_a(t_che *che)
+// void	sort_a(t_che *che)
+// {
+// 	while (!sort_che(che->la, ascending))
+// 	{
+// 		if (che->la->norm > che->la->next->norm)
+// 		{
+// 			swap_ab(che->la);
+// 			SA;
+// 		}
+// 		else
+// 		{
+// 			rotate_ab(&che->la);
+// 			RA;
+// 		}
+// 		// print_ab(che);
+// 	}
+// }
+
+int		find_hi(t_che *che)
 {
-	while (!sort_che(che->la, ascending))
+	t_stack *tmp;
+	int		ret;
+
+	ret = 0;
+	tmp = che->lb;
+	// ft_putendl_fd("e", 2);
+	while (che->lb)
 	{
-		if (che->la->norm > che->la->next->norm)
+		if (che->lb->norm > ret)
 		{
-			swap_ab(che->la);
-			SA;
+			// ft_putendl_fd("l", 2);
+			ret = che->lb->norm;
 		}
-		else
-		{
-			rotate_ab(&che->la);
-			RA;
-		}
-		// print_ab(che);
+		che->lb = che->lb->next;
 	}
+	che->lb = tmp;
+	// ft_putendl_fd("NUM=", 2);
+	// ft_putnbr_fd(ret, 2);
+	return (ret);
 }
 
 int	back2a(t_che *che)
 {
 	int n;
 
-	n = 3;
-	// slen = ft_lstlen(che->la);
+	// ft_putendl_fd("H", 2);
+	n = find_hi(che);
+	// ft_putendl_fd("E", 2);
 	while (ft_lstlen(che->lb) > 0)
 	{
-		if (che->lb->norm  <= n)
+		// ft_putendl_fd("L", 2);
+		if (che->lb->norm == n)
 		{
-			PB;
+			PA;
 			push_ab(&che->lb, &che->la);
-			RA;
-			rotate_ab(&che->la);
-			n++;
+			// RA;
+			// rotate_ab(&che->la);
+			n--;
 		}
 		else
 		{
-			RA;
+			RB;
 			rotate_ab(&che->lb);
-			// RA;
-			// ft_putendl_fd(CYN "ra" RESET, 2);
 		}
+		// print_ab(che);
 	}
 	return (1);
 }
@@ -82,71 +106,57 @@ int	back2a(t_che *che)
 void	sort_thre(t_che *che)
 {
 	t_stack *tmp;
+
 	tmp = che->la;
-	if (che->la->next->norm < che->la->norm)
+	ft_putendl_fd("SORT 3", 2);
+	while (!sort_che(che->la, ascending))
 	{
-		SA;
-		swap_ab(che->la);
-		// print_ab(che);
+		if (che->la->norm < che->la->next->norm)
+		{
+			SA;
+			swap_ab(che->la);
+		}
+		else if (che->la->norm > che->la->next->norm)
+		{
+			RRA;
+			revrot_ab(&che->la);
+			che->la = tmp;
+		}
+		che->la = tmp;
 	}
-	che->la = tmp;
-	if (che->la->norm > che->la->next->next->norm)
-	{
-		RRA;
-		revrot_ab(&che->la);	
-		// la = tmp;
-		// print_ab(che);
-	}	
 }
 
-void rra3(t_che *che)
+void	rra3(t_che *che)
 {
-	int i;
-	i = 0;
-	while (i++ < 3)
+	while (!sort_che(che->la, ascending))
 	{
 		RRA;
 		revrot_ab(&che->la);
 	}
 }
+
 void	sort(t_che *che, int llen)
 {
-	// while (!sort_che(che->la, ascending) || ft_lstlen(che->lb) > 0)
-	// {
-		while (ft_lstlen(che->la) >= 5)
-		{
-			get_chunk(che, llen);
-			llen -= (llen / 5);
-			// print_ab(che);
-		}
-		PB;
-		while (che->la->norm != 3 )
-		{
-			RA;
-			rotate_ab(&che->la);
-		}
-		push_ab(&che->la, &che->lb);
+	while (ft_lstlen(che->la) >= 5)
+	{
+		get_chunk(che, llen);
+		llen -= (llen / 5);
 		// print_ab(che);
-		sort_thre(che);
-		// print_ab(che);
-		// sort_a(che);
-		llen = ft_lstlen(che->lb);
-		// int in;
-		// n = 3;
-		// while (ft_lstlen(che->lb) > 1)
-		// {
-			back2a(che);
-			// n++;
-			llen -= 1;
-			// print_ab(che);
-		// }
-		// rra3(che);
-		// pirint_ab(che);
-		//while (ft_lstlen(che->lb) >= 5)
-	//	{
-			//back2a(che, llen);
-	//	}
-	// }s
+	}
+	while (che->la->norm != 3)
+	{
+		RA;
+		rotate_ab(&che->la);
+	}
+	PB;
+	push_ab(&che->la, &che->lb);
+	sort_thre(che);
+	// llen = ft_lstlen(che->lb);
+	// ft_putendl_fd("HI", 2);
+	back2a(che);
+	// ft_putendl_fd("BI", 2);
+	rra3(che);
+	// llen -= 1;
 }
 
 int		main(int argc, char **argv)
@@ -165,6 +175,17 @@ int		main(int argc, char **argv)
 		return (0);
 	}
 	llen = ft_lstlen(che->la);
+	if (llen == 3)
+	{
+		sort_thre(che);
+		return (1);
+	}
+	if (sort_che(che->la, ascending))
+		return (0);
+	// print_ab(che);
 	sort(che, llen);
+	print_ab(che);
+	// PA;
+	// RA;
 	return (1);
 }

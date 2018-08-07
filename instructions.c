@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:14:04 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/02 08:29:43 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/07 08:57:29 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 int		swap_ab(t_stack *l1)
 {
+	// ft_putendl_fd(CYN "S" RESET, 2);
 	if (l1 == NULL || l1->next == NULL)
 		return (0);
 	if (ft_lstlen(l1) <= 1)
@@ -27,6 +28,7 @@ int		swap_ab(t_stack *l1)
 
 void	rotate_ab(t_stack **lst)
 {
+	// ft_putendl_fd(CYN "RO" RESET, 2);
 	t_stack *tmp;
 	t_stack *pop;
 
@@ -45,6 +47,7 @@ void	rotate_ab(t_stack **lst)
 
 void	revrot_ab(t_stack **lst)
 {
+	// ft_putendl_fd(CYN "RE" RESET, 2);
 	t_stack *tmp;
 	t_stack *pop;
 
@@ -69,6 +72,7 @@ void	revrot_ab(t_stack **lst)
 
 void	push_ab(t_stack **l1, t_stack **l2)
 {
+	// ft_putendl_fd(CYN "P" RESET, 2);
 	t_stack *t1;
 	t_stack *t2;
 
