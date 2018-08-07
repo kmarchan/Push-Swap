@@ -16,7 +16,6 @@
 
 int		swap_ab(t_stack *l1)
 {
-	// ft_putendl_fd(CYN "S" RESET, 2);
 	if (l1 == NULL || l1->next == NULL)
 		return (0);
 	if (ft_lstlen(l1) <= 1)
@@ -26,22 +25,8 @@ int		swap_ab(t_stack *l1)
 	return (1);
 }
 
-// int		swap_a(t_stack **l1)
-// {
-// 	// ft_putendl_fd(CYN "S" RESET, 2);
-// 	if (*l1 == NULL || (*l1)->next == NULL)
-// 		return (0);
-// 	if (ft_lstlen(*l1) <= 1)
-// 		return (0);
-// 	ft_swap(&(*l1)->data, &(*l1)->next->data);
-// 	ft_swap(&(*l1)->norm, &(*l1)->next->norm);
-// 	return (1);
-// }
-
-
 void	rotate_ab(t_stack **lst)
 {
-	// ft_putendl_fd(CYN "RO" RESET, 2);
 	t_stack *tmp;
 	t_stack *pop;
 
@@ -60,7 +45,6 @@ void	rotate_ab(t_stack **lst)
 
 void	revrot_ab(t_stack **lst)
 {
-	// ft_putendl_fd(CYN "RE" RESET, 2);
 	t_stack *tmp;
 	t_stack *pop;
 
@@ -77,15 +61,10 @@ void	revrot_ab(t_stack **lst)
 	tmp->next = NULL;
 	pop->next = *lst;
 	*lst = pop;
-	// ft_putnbr(ft_lstlen(pop));
-	// ft_putstr(CYN);
-	// print_stack(pop);
-	// ft_putstr(RESET);
 }
 
 void	push_ab(t_stack **l1, t_stack **l2)
 {
-	// ft_putendl_fd(CYN "P" RESET, 2);
 	t_stack *t1;
 	t_stack *t2;
 
