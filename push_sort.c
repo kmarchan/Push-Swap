@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:40:55 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 13:35:40 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 13:37:16 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,12 @@ int		get_chunk(t_che *che, int llen)
 			}
 			else
 			{
-				RRA;
-				revrot_ab(&che->la);
+				while (!(che->la->norm >= (llen - (llen / 5))))
+				{
+					RRA;
+					revrot_ab(&che->la);
+				}
+
 			}
 		}
 	}
