@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:40:55 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 17:36:06 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 18:21:47 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		find_spec_next(t_che *che, int len, int num)
 		// ft_putchar_fd('\n', 2);
 		if (tmp->norm == num)
 		{
-			if (count > len / 2)
+			if (count > (len / 2))
 				return (0);
 		}
 		count++;
@@ -63,7 +63,9 @@ int		get_chunk(t_che *che, int llen)
 	int slen;
 
 	slen = ft_lstlen(che->lb);
-	while (ft_lstlen(che->lb) - slen <= llen / 5)
+	ft_putnbr_fd((llen - llen / 5), 2);
+	ft_putchar_fd('\t', 2);
+	while (ft_lstlen(che->lb) - slen <= (llen / 5))
 	{
 		if (che->la->norm >= (llen - (llen / 5)))
 		{
