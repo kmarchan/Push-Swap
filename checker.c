@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/07 12:01:47 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 08:45:12 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ int		main(int argc, char **argv)
 	}
 	if (!sort_che(che->la, ascending) || ft_lstlen(che->lb) > 0)
 	{
-		// print_ab(che);
 		KO;
 		return (0);
 	}

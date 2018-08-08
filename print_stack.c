@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 07:06:30 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/04 14:06:55 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 08:20:49 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@ void	print_stack(t_stack *la)
 	t_stack *tmp;
 
 	tmp = la;
-	// while (la != NULL)
-	// {
-		// ft_putnbr_fd(la->data, 2);
-		// ft_putchar_fd(' ', 2);
-		// la = la->next;
-	// }
-	// ft_putchar_fd('\n', 2);
+	while (la != NULL)
+	{
+		ft_putnbr_fd(la->data, 2);
+		ft_putchar_fd(' ', 2);
+		la = la->next;
+	}
+	ft_putchar_fd('\n', 2);
 	la = tmp;
 	while (la != NULL)
 	{
