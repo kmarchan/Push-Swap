@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:40:55 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 18:21:47 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 18:43:00 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		find_next(t_che *che, int len, int range)
 	{
 		if (tmp->norm >= (len - range))
 		{
-			if (count >= len / 2)
+			if (count >= len / 10)
 				return (0);
 		}
 		count++;

@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 09:05:27 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 18:47:47 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct		s_check
 	int				ll;
 }					t_che;
 
-# define ERROR ft_putendl_fd("Error", 2);
+# define ERROR ft_putendl_fd(CYN "Error" RESET, 2);
 # define KO ft_putendl_fd("KO", 2);
 # define OK ft_putendl_fd("OK", 2);
 # define SA ft_putendl_fd("sa", 1);
