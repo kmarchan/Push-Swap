@@ -33,6 +33,26 @@ int		find_next(t_che *che, int len, int range)
 	return (1);
 }
 
+int		find_spec_next(t_che *che, int len, int num)
+{
+	t_stack *tmp;
+	int		count;
+
+	count = 0;
+	tmp = che->la;
+	while (tmp->next)
+	{
+		if (tmp->norm >= num)
+		{
+			if (count >= len / 2)
+				return (0);
+		}
+		count++;
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
 int		get_chunk(t_che *che, int llen)
 {
 	int slen;
@@ -102,10 +122,21 @@ int		back2a(t_che *che)
 			push_ab(&che->lb, &che->la);
 			n--;
 		}
+		if (find_spec_next(che, ft_lstlen(che->lb), n) == 1)
+		{
+			while(che->lb->norm != n)
+			{
+				RB;
+				rotate_ab(&che->lb);
+			}
+		}
 		else
 		{
-			RRB;
-			revrot_ab(&che->lb);
+			while(che->lb->norm != n)
+			{
+				RRB;
+				revrot_ab(&che->lb);
+			}
 		}
 	}
 	return (1);
