@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:40:55 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 13:37:16 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 15:45:05 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int		find_spec_next(t_che *che, int len, int num)
 
 	count = 0;
 	tmp = che->la;
-	while (tmp->next)
-	{
+	while (tmp->next != NULL)
+	{		
 		if (tmp->norm >= num)
 		{
 			if (count >= len / 2)
@@ -115,7 +115,6 @@ int		back2a(t_che *che)
 	n = find_hi(che);
 	while (ft_lstlen(che->lb) > 0)
 	{
-		// print_ab(che);
 		if (che->lb->norm == n)
 		{
 			PA;
@@ -124,7 +123,7 @@ int		back2a(t_che *che)
 		}
 		if (find_spec_next(che, ft_lstlen(che->lb), n) == 1)
 		{
-			while(che->lb->norm != n)
+			while (che->lb->norm != n)
 			{
 				RB;
 				rotate_ab(&che->lb);
@@ -132,7 +131,7 @@ int		back2a(t_che *che)
 		}
 		else
 		{
-			while(che->lb->norm != n)
+			while (ft_lstlen(che->lb) >= 2 && che->lb->norm != n)
 			{
 				RRB;
 				revrot_ab(&che->lb);

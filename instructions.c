@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:14:04 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 10:48:47 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 15:43:53 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,6 @@ void	revrot_ab(t_stack **lst)
 {
 	t_stack *tmp;
 	t_stack *pop;
-
 	if (ft_lstlen(*lst) <= 1)
 		return ;
 	pop = *lst;
