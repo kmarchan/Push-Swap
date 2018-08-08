@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 09:02:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 17:27:30 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 21:17:23 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ void	sort_thre(t_che *che)
 {
 	while (!sort_che(che->la, ascending))
 	{
-		if (che->la->norm < che->la->next->norm)
+		if (che->la->norm == 2)
+		{
+			RA;
+			rotate_ab(&che->la);
+		}
+		else if (che->la->norm < che->la->next->norm)
 		{
 			RRA;
 			revrot_ab(&che->la);
