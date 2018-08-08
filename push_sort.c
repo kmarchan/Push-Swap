@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:40:55 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 18:43:00 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 19:56:38 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ int		find_next(t_che *che, int len, int range)
 
 	count = 0;
 	tmp = che->la;
-	while (tmp->next)
+	while (tmp)
 	{
 		if (tmp->norm >= (len - range))
 		{
-			if (count >= len / 10)
+			if (count >= len / 2)
 				return (0);
 		}
 		count++;
@@ -41,7 +41,7 @@ int		find_spec_next(t_che *che, int len, int num)
 	count = 0;
 	tmp = che->lb;
 	// ft_putnbr_fd(num, 2);
-	while (tmp->next != NULL)
+	while (tmp != NULL)
 	{
 		// ft_putnbr_fd(tmp->norm, 2);
 		// ft_putchar_fd(' ', 2);
@@ -51,6 +51,8 @@ int		find_spec_next(t_che *che, int len, int num)
 		{
 			if (count > (len / 2))
 				return (0);
+			else
+				return (1);
 		}
 		count++;
 		tmp = tmp->next;
@@ -129,7 +131,7 @@ int		back2a(t_che *che)
 		}
 		else if (find_spec_next(che, ft_lstlen(che->lb), n) == 0)
 		{
-			while (ft_lstlen(che->lb) >= 2 && che->lb->norm != n)
+			while (/*ft_lstlen(che->lb) >= 2 && */che->lb->norm != n)
 			{
 				RRB;
 				revrot_ab(&che->lb);
@@ -137,7 +139,7 @@ int		back2a(t_che *che)
 		}
 		else
 		{
-			while (ft_lstlen(che->lb) >= 2 && che->lb->norm != n)
+			while (/*ft_lstlen(che->lb) >= 2 && */che->lb->norm != n)
 			{
 				RB;
 				rotate_ab(&che->lb);
