@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:40:55 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 15:45:05 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 17:36:06 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,17 @@ int		find_spec_next(t_che *che, int len, int num)
 	int		count;
 
 	count = 0;
-	tmp = che->la;
+	tmp = che->lb;
+	// ft_putnbr_fd(num, 2);
 	while (tmp->next != NULL)
-	{		
-		if (tmp->norm >= num)
+	{
+		// ft_putnbr_fd(tmp->norm, 2);
+		// ft_putchar_fd(' ', 2);
+		// ft_putnbr_fd(num, 2);
+		// ft_putchar_fd('\n', 2);
+		if (tmp->norm == num)
 		{
-			if (count >= len / 2)
+			if (count > len / 2)
 				return (0);
 		}
 		count++;
@@ -59,7 +64,7 @@ int		get_chunk(t_che *che, int llen)
 
 	slen = ft_lstlen(che->lb);
 	while (ft_lstlen(che->lb) - slen <= llen / 5)
-		{
+	{
 		if (che->la->norm >= (llen - (llen / 5)))
 		{
 			PB;
@@ -71,7 +76,7 @@ int		get_chunk(t_che *che, int llen)
 			{
 				while (!(che->la->norm >= (llen - (llen / 5))))
 				{
-					RA;
+					RA
 					rotate_ab(&che->la);
 				}
 			}
@@ -82,7 +87,6 @@ int		get_chunk(t_che *che, int llen)
 					RRA;
 					revrot_ab(&che->la);
 				}
-
 			}
 		}
 	}
@@ -121,20 +125,20 @@ int		back2a(t_che *che)
 			push_ab(&che->lb, &che->la);
 			n--;
 		}
-		if (find_spec_next(che, ft_lstlen(che->lb), n) == 1)
+		else if (find_spec_next(che, ft_lstlen(che->lb), n) == 0)
 		{
-			while (che->lb->norm != n)
+			while (ft_lstlen(che->lb) >= 2 && che->lb->norm != n)
 			{
-				RB;
-				rotate_ab(&che->lb);
+				RRB;
+				revrot_ab(&che->lb);
 			}
 		}
 		else
 		{
 			while (ft_lstlen(che->lb) >= 2 && che->lb->norm != n)
 			{
-				RRB;
-				revrot_ab(&che->lb);
+				RB;
+				rotate_ab(&che->lb);
 			}
 		}
 	}

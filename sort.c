@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 09:02:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 13:32:57 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 17:27:30 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	sort(t_che *che, int llen)
 {
 	while (ft_lstlen(che->la) >= 5)
 	{
-		get_chunk(che, llen-1);
+		get_chunk(che, llen - 1);
 		llen = ft_lstlen(che->la);
 		// llen -= (llen / 5);
 	}
