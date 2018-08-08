@@ -6,20 +6,40 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:40:55 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 08:46:21 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/08 13:35:40 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 #include <strings.h>
 
+int		find_next(t_che *che, int len, int range)
+{
+	t_stack *tmp;
+	int		count;
+
+	count = 0;
+	tmp = che->la;
+	while (tmp->next)
+	{
+		if (tmp->norm >= (len - range))
+		{
+			if (count >= len / 2)
+				return (0);
+		}
+		count++;
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
 int		get_chunk(t_che *che, int llen)
 {
 	int slen;
 
 	slen = ft_lstlen(che->lb);
-	while (ft_lstlen(che->lb) - slen < llen / 5)
-	{
+	while (ft_lstlen(che->lb) - slen <= llen / 5)
+		{
 		if (che->la->norm >= (llen - (llen / 5)))
 		{
 			PB;
@@ -27,8 +47,19 @@ int		get_chunk(t_che *che, int llen)
 		}
 		else
 		{
-			RA;
-			rotate_ab(&che->la);
+			if (find_next(che, llen, (llen / 5)) == 1)
+			{
+				while (!(che->la->norm >= (llen - (llen / 5))))
+				{
+					RA;
+					rotate_ab(&che->la);
+				}
+			}
+			else
+			{
+				RRA;
+				revrot_ab(&che->la);
+			}
 		}
 	}
 	return (1);
@@ -60,6 +91,7 @@ int		back2a(t_che *che)
 	n = find_hi(che);
 	while (ft_lstlen(che->lb) > 0)
 	{
+		// print_ab(che);
 		if (che->lb->norm == n)
 		{
 			PA;
@@ -68,8 +100,8 @@ int		back2a(t_che *che)
 		}
 		else
 		{
-			RB;
-			rotate_ab(&che->lb);
+			RRB;
+			revrot_ab(&che->lb);
 		}
 	}
 	return (1);
