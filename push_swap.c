@@ -6,11 +6,12 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 06:53:00 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/09 16:36:00 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 16:41:04 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+#include "libft.h"
 #include <strings.h>
 
 int		main(int argc, char **argv)

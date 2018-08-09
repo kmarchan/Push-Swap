@@ -6,11 +6,12 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:40:55 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/09 14:41:38 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 16:42:09 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
+#include "libft.h"
 #include <strings.h>
 
 int		find_next(t_che *che, int len, int range)
@@ -60,8 +61,6 @@ int		get_chunk(t_che *che, int llen)
 	int slen;
 
 	slen = ft_lstlen(che->lb);
-	// ft_putnbr_fd((llen - llen / 5), 2);
-	// ft_putchar_fd('\t', 2);
 	while (ft_lstlen(che->lb) - slen <= (llen / 5))
 	{
 		if (che->la->norm >= (llen - (llen / 5)))
