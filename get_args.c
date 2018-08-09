@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:29:54 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/09 14:43:31 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 16:39:07 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 #include "checker.h"
 #include <limits.h>
 
-int		read_args(char *argv, t_che *che)
+int		read_args(char *argv, t_che *che, int end)
 {
+	t_stack *tmp;
+	tmp = che->la;
 	if (!is_all_digit(argv))
 		return (0);
-	if (ft_strstr(argv, " "))
+	else if (ft_strstr(argv, " "))
 	{
 		if (!sort_args(che, argv))
 			return (0);
@@ -29,10 +31,15 @@ int		read_args(char *argv, t_che *che)
 		{
 			return (0);
 		}
-		che->la->next = ft_intlstnew();
+		if (end)
+		{
+			che->la->next = ft_intlstnew();
+		}
 		che->la->data = (ft_atoi(argv));
 		che->la->norm = -2;
 	}
+	che->la = tmp;
+	// print_ab(che);
 	return (1);
 }
 
@@ -50,15 +57,17 @@ int		args(int argc, char **argv, t_che *che)
 	tmp = che->la;
 	while (arg < argc)
 	{
-		if (!read_args(argv[arg], che))
+		if (!read_args(argv[arg], che, (arg < argc - 1)))
 			return (0);
 		che->la = che->la->next;
 		arg++;
 	}
+	// print_ab(che);
 	che->la = tmp;
 	c = normalise(che, argc);
 	if (c == 0)
 		return (0);
-	del_extra(che->la);
+	// print_ab(che);
+	// del_extra(che->la);
 	return (1);
 }

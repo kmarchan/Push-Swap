@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 07:39:19 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/09 12:03:33 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 15:37:04 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ t_stack		*ft_intlstnew(void)
 	{
 		return (NULL);
 	}
-	new->data = -1;
-	new->norm = -1;
+	new->data = -3;
+	new->norm = -3;
 	new->next = NULL;
 	return (new);
 }

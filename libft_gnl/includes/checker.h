@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/09 14:42:19 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 15:45:02 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct		s_check
 # define RRR ft_putendl_fd("rrr", 1);
 
 int					sort_args(t_che *che, char *str);
-int					read_args(char *argv, t_che *che);
+int					read_args(char *argv, t_che *che, int end);
 int					args(int argc, char **argv, t_che *che);
 int					normalise(t_che *che, size_t n);
 void				set_norm(int *ar, size_t n, t_che *che);

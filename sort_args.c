@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:33:30 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/09 14:31:20 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 16:32:46 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	set_norm(int *ar, size_t n, t_che *che)
 	size_t	e;
 
 	tmp = che->la;
-	while (che->la->next != NULL)
+	while (che->la != NULL)
 	{
 		e = 0;
 		while (e < n)
@@ -44,7 +44,7 @@ int		normalise(t_che *che, size_t n)
 	tmp = che->la;
 	ar = (int*)malloc(sizeof(int) * n + 1);
 	n = 0;
-	while (che->la->next != NULL)
+	while (che->la != NULL)
 	{
 		ar[n] = che->la->data;
 		n++;
@@ -74,7 +74,8 @@ int		sort_args(t_che *che, char *str)
 		{
 			return (0);
 		}
-		che->la->next = ft_intlstnew();
+		if (ar[e + 1] != NULL)
+			che->la->next = ft_intlstnew();
 		che->la->data = (ft_atoi(ar[e]));
 		che->la = che->la->next;
 		e++;

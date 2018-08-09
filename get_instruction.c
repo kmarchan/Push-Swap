@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 16:36:56 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/09 13:55:48 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 15:08:59 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,12 @@ int		read_instruction(t_che *che)
 		else
 			return (0);
 		if (e == 0)
+		{
+			free(buf);
 			return (0);
+		}
 	}
+	free(buf);
 	return (1);
 }
 
