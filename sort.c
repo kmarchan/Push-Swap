@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 09:02:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/09 13:52:45 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 14:42:34 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,7 +110,6 @@ void	sort(t_che *che, int llen)
 		RA;
 		rotate_ab(&che->la);
 	}
-	// print_ab(che);
 	PB;
 	push_ab(&che->la, &che->lb);
 	sort_thre(che);

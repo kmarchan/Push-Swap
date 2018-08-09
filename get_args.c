@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:29:54 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/09 14:31:58 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 14:43:31 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int		read_args(char *argv, t_che *che)
 		che->la->next = ft_intlstnew();
 		che->la->data = (ft_atoi(argv));
 		che->la->norm = -2;
-		}
+	}
 	return (1);
 }
 
