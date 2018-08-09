@@ -6,11 +6,12 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/06 08:21:39 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/06 08:26:14 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 10:52:33 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "checker.h"
 #include <stdlib.h>
 
 void	bzero_array(char **ar, int n)
@@ -35,4 +36,11 @@ void	free_ar(char **ar, int n)
 		free(ar[e]);
 		e++;
 	}
+}
+
+void	free_stack(t_stack *stack)
+{
+	if (stack->next)
+		free_stack(stack->next);
+	free(stack);
 }

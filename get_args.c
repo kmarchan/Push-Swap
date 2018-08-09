@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:29:54 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 08:36:09 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 12:44:47 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,14 @@ int		read_args(char *argv, t_che *che)
 	{
 		if (ft_atoi(argv) < -217478368 || ft_atoi(argv) > 217478367)
 		{
+			free_stack(che->la);
+			free(che);
 			return (0);
 		}
 		che->la->next = ft_intlstnew();
 		che->la->data = (ft_atoi(argv));
 		che->la->norm = -2;
-	}
+		}
 	return (1);
 }
 

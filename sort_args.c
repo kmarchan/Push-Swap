@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:33:30 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 08:36:21 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 13:58:58 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,12 @@ int		normalise(t_che *che, size_t n)
 	}
 	if (!sort_int_tab(ar, n))
 	{
+		free(ar);
 		return (0);
 	}
 	che->la = tmp;
 	set_norm(ar, n, che);
+	free(ar);
 	return (1);
 }
 

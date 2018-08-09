@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 18:47:47 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 13:58:40 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct		s_check
 	int				ll;
 }					t_che;
 
-# define ERROR ft_putendl_fd(CYN "Error" RESET, 2);
+# define ERROR ft_putendl_fd("Error", 2);
 # define KO ft_putendl_fd("KO", 2);
 # define OK ft_putendl_fd("OK", 2);
 # define SA ft_putendl_fd("sa", 1);
@@ -64,6 +64,8 @@ int					sort_int_tab(int *tab, size_t n);
 int					is_all_digit(char *str);
 t_stack				*ft_intlstnew(void);
 void				del_extra(t_stack *lst);
+void				free_stack(t_stack *stack);
+
 
 void				print_stack(t_stack *lst);
 void				print_ab(t_che *che);
@@ -77,6 +79,8 @@ int					back2a(t_che *che);
 void				sort_thre(t_che *che);
 void				rra3(t_che *che);
 void				sort(t_che *che, int llen);
+int					find_next(t_che *che, int len, int range);
+
 
 char				**ft_strspliter(char *str, char c);
 char				**ft_split(char *str);

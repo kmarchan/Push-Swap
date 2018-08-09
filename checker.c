@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 08:45:12 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/09 13:55:23 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ int		main(int argc, char **argv)
 	if (!la)
 	{
 		ERROR;
-		return (0);
+		exit(0);
 	}
 	if (!read_instruction(che))
 	{
 		ERROR;
-		return (0);
+		exit(0);
 	}
 	if (!sort_che(che->la, ascending) || ft_lstlen(che->lb) > 0)
 	{
 		KO;
-		return (0);
+		exit(0);
 	}
 	OK;
-	return (1);
+	exit(1);
 }
