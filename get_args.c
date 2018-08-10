@@ -68,8 +68,8 @@ int		args(int argc, char **argv, t_che *che)
 		arg++;
 	}
 	che->la = tmp;
-	if (ft_lstlen(che->la) != 1 )
-		c = normalise(che, argc);
+	// if (ft_lstlen(che->la) != 1 )
+	c = normalise(che, argc);
 	if (c == 0)
 	{
 		free(che->la);
