@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:24:09 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/08 08:55:00 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/10 12:46:21 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char				**ft_split(char *str)
 	words = ft_strc(str);
 	ret = (char**)malloc(sizeof(*ret) * words + 1);
 	i = 0;
-	while (i <= words)
+	while (i < words)
 	{
 		while (ft_isspace(*str) == 1 && *str != '\0')
 			str++;
