@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 06:53:00 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/10 14:04:41 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/10 14:05:29 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ int		main(int argc, char **argv)
 		return (0);
 	che = (t_che *)ft_memalloc(sizeof(t_che));
 	la = args(argc, argv, che);
-	write (1, "A", 1);
 	if (!la)
 	{
 		ERROR;
@@ -50,6 +49,5 @@ int		main(int argc, char **argv)
 		free_ar(che->ar, ft_lstlen(che->la));
 	free_stack(che->la);
 	free(che);
-	while (1);
 	exit(1);
 }
