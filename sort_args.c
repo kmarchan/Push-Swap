@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:33:30 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/09 16:32:46 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/10 09:02:18 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int		sort_args(t_che *che, char *str)
 	{
 		if (ft_atoi(ar[e]) < -217478368 || ft_atoi(ar[e]) > 217478367)
 		{
+			free(&ar);
 			return (0);
 		}
 		if (ar[e + 1] != NULL)
@@ -80,5 +81,6 @@ int		sort_args(t_che *che, char *str)
 		che->la = che->la->next;
 		e++;
 	}
+	free(&ar);
 	return (1);
 }

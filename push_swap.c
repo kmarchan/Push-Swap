@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 06:53:00 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/09 16:41:04 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/10 10:17:59 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,19 @@ int		main(int argc, char **argv)
 	if (!la)
 	{
 		ERROR;
+		free(che);
 		exit(0);
 	}
 	llen = ft_lstlen(che->la);
 	if (llen >= 2 && llen <= 3)
 	{
 		sort_thre(che);
+		free_stack(che->la);
+		free(che);
 		exit(1);
 	}
 	if (sort_che(che->la, ascending))
-		return (0);
+		exit (0);
 	sort(che, llen);
 	free_stack(che->la);
 	free(che);
