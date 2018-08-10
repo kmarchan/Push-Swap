@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:29:54 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/10 13:17:37 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/10 14:03:04 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,16 +50,17 @@ int		args(int argc, char **argv, t_che *che)
 	t_stack	*tmp;
 
 	(void)argv;
+	c = 0;
 	if (argc <= 1)
 		return (0);
 	arg = 1;
 	che->la = (t_stack *)malloc(sizeof(t_stack));
+	che->la->next = NULL;
 	tmp = che->la;
 	while (arg < argc)
 	{
 		if (!read_args(argv[arg], che, (arg < argc - 1)))
 		{
-			free_stack(tmp);
 			free(che->la);
 			return (0);
 		}
@@ -67,10 +68,10 @@ int		args(int argc, char **argv, t_che *che)
 		arg++;
 	}
 	che->la = tmp;
-	c = normalise(che, argc);
+	if (ft_lstlen(che->la) != 1 )
+		c = normalise(che, argc);
 	if (c == 0)
 	{
-		free_stack(tmp);
 		free(che->la);
 		return (0);
 	}

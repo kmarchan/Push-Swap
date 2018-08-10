@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/08 08:33:30 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/10 13:06:43 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/10 14:03:50 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ int		normalise(t_che *che, size_t n)
 
 int		sort_args(t_che *che, char *str)
 {
-	// char	**ar;
 	int		e;
 
 	e = 0;
@@ -80,7 +79,5 @@ int		sort_args(t_che *che, char *str)
 		che->la = che->la->next;
 		e++;
 	}
-	// free_ar(ar, e);
-	// while(1);
 	return (1);
 }
