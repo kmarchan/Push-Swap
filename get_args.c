@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:29:54 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/10 14:03:04 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/11 11:51:19 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,16 +62,17 @@ int		args(int argc, char **argv, t_che *che)
 		if (!read_args(argv[arg], che, (arg < argc - 1)))
 		{
 			free(che->la);
+			free_stack(tmp);
 			return (0);
 		}
 		che->la = che->la->next;
 		arg++;
 	}
 	che->la = tmp;
-	// if (ft_lstlen(che->la) != 1 )
 	c = normalise(che, argc);
 	if (c == 0)
 	{
+		free_stack(tmp);
 		free(che->la);
 		return (0);
 	}
