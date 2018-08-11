@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/10 13:05:30 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/11 12:00:32 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct		s_check
 	t_stack			*lb;
 	char			**ar;
 	int				fd;
-	int				ll;
+	int				llen;
 }					t_che;
 
 # define ERROR ft_putendl_fd("Error", 2);

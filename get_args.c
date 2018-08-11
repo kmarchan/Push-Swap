@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:29:54 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/11 11:51:19 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/11 13:00:50 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,37 +43,46 @@ int		read_args(char *argv, t_che *che, int end)
 	return (1);
 }
 
+int		each_arg(int argc, char **argv, t_che *che)
+{
+	int arg;
+
+	arg = 1;
+	while (arg < argc)
+	{
+		if (!read_args(argv[arg], che, (arg < argc - 1)))
+		{
+			return (0);
+		}
+		che->la = che->la->next;
+		arg++;
+	}
+	return (1);
+}
+
 int		args(int argc, char **argv, t_che *che)
 {
 	int		arg;
 	int		c;
 	t_stack	*tmp;
 
-	(void)argv;
 	c = 0;
 	if (argc <= 1)
 		return (0);
 	arg = 1;
-	che->la = (t_stack *)malloc(sizeof(t_stack));
-	che->la->next = NULL;
+	che->la = ft_intlstnew();
 	tmp = che->la;
-	while (arg < argc)
-	{
-		if (!read_args(argv[arg], che, (arg < argc - 1)))
-		{
-			free(che->la);
-			free_stack(tmp);
-			return (0);
-		}
-		che->la = che->la->next;
-		arg++;
-	}
+	c = each_arg(argc, argv, che);
 	che->la = tmp;
+	if (c == 0)
+	{
+		free_stack(tmp);
+		return (0);
+	}
 	c = normalise(che, argc);
 	if (c == 0)
 	{
 		free_stack(tmp);
-		free(che->la);
 		return (0);
 	}
 	return (1);
