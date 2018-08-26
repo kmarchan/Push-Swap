@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 07:06:30 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/26 16:09:16 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/26 17:24:38 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	print(t_che *che)
 	if (che->llen == 0)
 	{
 		che->llen = ft_lstlen(che->la);
-		ft_putstr("\e[5j");
+		ft_putstr("\e[2j");
 	}
 	ft_putstr(CLR);
 	ft_putstr(WHT "\n\n\n");
