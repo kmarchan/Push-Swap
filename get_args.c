@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/02 08:29:54 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/11 13:00:50 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/26 15:31:05 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,9 @@ int		read_args(char *argv, t_che *che, int end)
 	else
 	{
 		if (ft_atoi(argv) < -217478368 || ft_atoi(argv) > 217478367)
-		{
 			return (0);
-		}
 		if (end)
-		{
 			che->la->next = ft_intlstnew();
-		}
 		che->la->data = (ft_atoi(argv));
 		che->la->norm = -2;
 	}
@@ -50,6 +46,16 @@ int		each_arg(int argc, char **argv, t_che *che)
 	arg = 1;
 	while (arg < argc)
 	{
+		if (ft_strcmp(argv[arg], "-v") == 0)
+		{
+			che->vis = 1;
+			arg++;
+		}
+		if (ft_strcmp(argv[arg], "-s") == 0)
+		{
+			che->vis = 2;
+			arg++;
+		}
 		if (!read_args(argv[arg], che, (arg < argc - 1)))
 		{
 			return (0);

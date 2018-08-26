@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/11 12:00:32 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/26 15:15:25 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 # define CHECKER_H
 # include "libft.h"
 # define CYN "\x1B[36m"
+# define RED   "\x1B[31m"
+# define GRN   "\x1B[32m"
+# define YEL   "\x1B[33m"
+# define BLU   "\x1B[34m"
+# define MAG   "\x1B[35m"
+# define WHT   "\x1B[37m"
 # define RESET "\x1B[0m"
+# define CLR "\e[1;1H\e[2j"
 
 typedef struct		s_stack
 {
@@ -30,6 +37,7 @@ typedef struct		s_check
 	char			**ar;
 	int				fd;
 	int				llen;
+	int				vis;
 }					t_che;
 
 # define ERROR ft_putendl_fd("Error", 2);
@@ -84,5 +92,6 @@ int					find_next(t_che *che, int len, int range);
 char				**ft_strspliter(char *str, char c);
 char				**ft_split(char *str);
 void				free_ar(char **ar, int n);
+void				print(t_che *che);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/01 16:36:56 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/09 15:08:59 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/26 14:54:48 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ int		read_instruction(t_che *che)
 	e = 0;
 	while ((ret = get_next_line(che->fd, &buf) > 0))
 	{
+		print(che);
 		if (strchr(buf, 's'))
 			e = ins_swap(buf, che);
 		else if (strchr(buf, 'r'))
@@ -93,6 +94,7 @@ int		read_instruction(t_che *che)
 			return (0);
 		}
 	}
+	print(che);
 	free(buf);
 	return (1);
 }

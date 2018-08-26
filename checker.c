@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 07:59:25 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/10 13:36:35 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/26 14:51:49 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int		main(int argc, char **argv)
 	if (argc <= 1)
 		return (0);
 	che = (t_che *)ft_memalloc(sizeof(t_che));
+	che->llen = 0;
 	la = args(argc, argv, che);
 	if (!la)
 	{
