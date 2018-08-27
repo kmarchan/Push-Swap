@@ -6,7 +6,7 @@
 #    By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/24 13:53:38 by kmarchan          #+#    #+#              #
-#    Updated: 2018/08/08 09:04:50 by kmarchan         ###   ########.fr        #
+#    Updated: 2018/08/27 14:10:33 by kmarchan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME2=	push_swap
 
 INCLUDES= -I ./libft_gnl/includes
 
-all:	$(NAME1) $(NAME2)
+all:	lib $(NAME1) $(NAME2)
 
 lib: 
 	make re -C ./libft_gnl/

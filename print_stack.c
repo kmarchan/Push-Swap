@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 07:06:30 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/27 10:03:18 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/27 14:28:57 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void	print_norm(t_che *che, t_stack *s)
 		ft_putstr("         ");
 		while (i <= tmp->norm)
 		{
-			ft_putstr("X");
+			ft_putstr("█");
 			i++;
 		}
 		while (i <= che->llen)
@@ -91,15 +91,14 @@ void	print(t_che *che)
 		{
 			che->llen = ft_lstlen(che->la);
 			while (i--)
-				ft_putchar(' ');
+				ft_putstr(" ");
 		}
 		ft_putstr(CLR);
 		ft_putstr(WHT "\n\n\n");
 		ft_putstr("        ___  _  _ ____ _  _    ____ _ _ _ ____ ___        ");
 		ft_putendl(CYN "             STACK A is CYAN              ");
 		ft_putstr("        |__] |  | [__  |__| __ [__  | | | |__| |__]       ");
-		ft_putendl(MAG "             STACK B is MAGENTA");
-		ft_putstr(BLU);
+		ft_putendl(MAG "             STACK B is MAGENTA" RESET);
 		ft_putendl("        |    |__| ___] |  |    ___] |_|_| |  | |         ");
 		ft_putstr(RESET);
 		print_vis(che);

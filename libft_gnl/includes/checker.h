@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/07/23 08:43:40 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/27 09:47:12 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/27 14:21:44 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # define MAG   "\x1B[35m"
 # define WHT   "\x1B[37m"
 # define RESET "\x1B[0m"
-# define CLR "\e[1;1H"
+# define CLR "\e[1;1H\e[?25l"
 
 typedef struct		s_stack
 {
