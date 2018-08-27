@@ -6,7 +6,7 @@
 /*   By: kmarchan <kmarchan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/03 07:06:30 by kmarchan          #+#    #+#             */
-/*   Updated: 2018/08/26 17:24:38 by kmarchan         ###   ########.fr       */
+/*   Updated: 2018/08/27 09:51:22 by kmarchan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	print_norm(t_che *che, t_stack *s)
 			ft_putstr("X");
 			i++;
 		}
-		while (i <= che->llen * 2)
+		while (i <= che->llen)
 		{
 			ft_putchar(' ');
 			i++;
@@ -82,23 +82,28 @@ void	print_vis(t_che *che)
 
 void	print(t_che *che)
 {
-	if (che->llen == 0)
-	{
-		che->llen = ft_lstlen(che->la);
-		ft_putstr("\e[2j");
-	}
-	ft_putstr(CLR);
-	ft_putstr(WHT "\n\n\n");
-	ft_putstr("         ___  _  _ ____ _  _    ____ _ _ _ ____ ___         ");
-	ft_putendl(CYN "            STACK A is CYAN            ");
-	ft_putstr(CYN);
-	ft_putstr("         |__] |  | [__  |__| __ [__  | | | |__| |__]         ");
-	ft_putendl(MAG "           STACK B is MAGENTA");
-	ft_putstr(BLU);
-	ft_putendl("         |    |__| ___] |  |    ___] |_|_| |  | |            ");
-	ft_putstr(RESET);
+	int i;
+
+	i = 100000;
 	if (che->vis == 1)
+	{
+		if (che->llen == 0)
+		{
+			che->llen = ft_lstlen(che->la);
+			while (i--)
+				ft_putchar(' ');
+		}
+		ft_putstr(CLR);
+		ft_putstr(WHT "\n\n\n");
+		ft_putstr("        ___  _  _ ____ _  _    ____ _ _ _ ____ ___        ");
+		ft_putendl(CYN "            STACK A is CYAN            ");
+		ft_putstr("        |__] |  | [__  |__| __ [__  | | | |__| |__]       ");
+		ft_putendl(MAG "           STACK B is MAGENTA");
+		ft_putstr(BLU);
+		ft_putendl("        |    |__| ___] |  |    ___] |_|_| |  | |         ");
+		ft_putstr(RESET);
 		print_vis(che);
+	}
 	else if (che->vis == 2)
 		print_ab(che);
 }
