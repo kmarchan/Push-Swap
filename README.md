@@ -1,5 +1,4 @@
 <img width="940" alt="screen shot 2018-09-12 at 10 19 50" src="https://user-images.githubusercontent.com/36439765/45412002-fd2fd780-b675-11e8-9a6e-b7ce36b8e939.png">
-Push_swap
 
 Because Swap_push isn’t as natural
   
