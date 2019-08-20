@@ -28,6 +28,8 @@ The next 3 images show you the basic process that the algorythm follows to sort 
 The screenshot below shows the visualiser once the stack has been sorted, see the OK which is the checkers output meaning that the push-swap program sorted the arguments <img width="827" alt="screen shot 2018-09-12 at 10 22 14" src="https://user-images.githubusercontent.com/36439765/45412021-0751d600-b676-11e8-9f5a-40d951832665.png">
 
 Finally the "-s" flag shows each stack after every opperation as shown with 3 arguments.
+In the screenshot below you can see the use of the ```ARG=`ruby -e "puts (0..3).to_a.shuffle.join(' ')"`;``` which populates ARG with random numbers which is then passed as the arguments to both the checker and the push-swap programs. 
+
 <img width="817" alt="screen shot 2018-09-12 at 10 24 32" src="https://user-images.githubusercontent.com/36439765/45412073-1c2e6980-b676-11e8-87eb-36df548c3cc3.png">
 
 -WE THINK CODE(CPT)
